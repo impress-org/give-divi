@@ -1,4 +1,5 @@
 <?php
+
 namespace GiveDivi\Divi;
 
 use Give\Helpers\Hooks;
@@ -7,6 +8,7 @@ use GiveDivi\Addon\License;
 use GiveDivi\Addon\Language;
 use GiveDivi\Addon\ActivationBanner;
 use GiveDivi\Divi\Helpers\Modules;
+use GiveDivi\Divi\Routes\RenderDonationForm;
 
 /**
  * Service provider responsible for add-on initialization.
@@ -33,10 +35,12 @@ class AddonServiceProvider implements ServiceProvider {
 		// Load backend assets.
 		Hooks::addAction( 'wp_enqueue_scripts', Assets::class, 'loadAssets' );
 
+		Hooks::addAction( 'rest_api_init', RenderDonationForm::class, 'registerRoute' );
+
 		// Load GiveWP Divi modules
 		add_action(
 			'et_pagebuilder_module_init',
-			function() {
+			function () {
 				foreach ( Modules::getModules() as $module ) {
 					give( $module );
 				}
