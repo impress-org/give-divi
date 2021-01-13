@@ -9,7 +9,8 @@
         "phpcompatibility/phpcompatibility-wp": "^2.1",
         "wp-coding-standards/wpcs": "^2.3",
         "phpcompatibility/php-compatibility": "^9.3",
-        "dealerdirect/phpcodesniffer-composer-installer": "^0.7.0"
+        "dealerdirect/phpcodesniffer-composer-installer": "^0.7.0",
+        "phpunit/phpunit": "^5"
     },
     "scripts": {
         "post-install-cmd": [
@@ -17,7 +18,8 @@
         ],
         "install-codestandards": [
             "Dealerdirect\\Composer\\Plugin\\Installers\\PHPCodeSniffer\\Plugin::run"
-        ]
+        ],
+        "test:unit": "phpunit"
     },
     "autoload": {
         "psr-4": {
