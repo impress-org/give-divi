@@ -4,9 +4,9 @@ use GiveDivi\Addon\Environment;
 use GiveDivi\Divi\AddonServiceProvider;
 
 /**
- * Plugin Name: Give - Divi Modules
+ * Plugin Name: Give - Divi
  * Plugin URI:  https://givewp.com/addons/give-divi/
- * Description: Use GiveWP as Divi modules
+ * Description: Use GiveWP shortcodes as Divi modules
  * Version:     1.0.0
  * Author:      GiveWP
  * Author URI:  https://givewp.com/
@@ -16,7 +16,7 @@ use GiveDivi\Divi\AddonServiceProvider;
 defined( 'ABSPATH' ) or exit;
 
 // Add-on name
-define( 'GIVE_DIVI_ADDON_NAME', 'Give - Divi Modules' );
+define( 'GIVE_DIVI_ADDON_NAME', 'Give - Divi' );
 
 // Versions
 define( 'GIVE_DIVI_ADDON_VERSION', '1.0.0' );
