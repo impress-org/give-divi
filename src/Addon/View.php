@@ -13,14 +13,14 @@ use InvalidArgumentException;
 class View {
 
 	/**
-	 * @param string $view
-	 * @param array $templateParams Arguments for template.
-	 * @param bool $echo
+	 * @param  string  $view
+	 * @param  array  $templateParams  Arguments for template.
+	 * @param  bool  $echo
 	 *
+	 * @return string|void
 	 * @throws InvalidArgumentException if template file not exist
 	 *
 	 * @since 1.0.0
-	 * @return string|void
 	 */
 	public static function load( $view, $templateParams = [], $echo = false ) {
 		$template = GIVE_DIVI_ADDON_DIR . 'src/Divi/resources/views/' . $view . '.php';
@@ -30,6 +30,7 @@ class View {
 		}
 
 		ob_start();
+		// phpcs:ignore
 		extract( $templateParams );
 		include $template;
 		$content = ob_get_clean();
@@ -42,8 +43,8 @@ class View {
 	}
 
 	/**
-	 * @param string $view
-	 * @param array $vars
+	 * @param  string  $view
+	 * @param  array  $vars
 	 *
 	 * @since 1.0.0
 	 */
