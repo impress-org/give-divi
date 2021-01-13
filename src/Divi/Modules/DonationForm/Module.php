@@ -4,55 +4,98 @@ namespace GiveDivi\Divi\Modules\DonationForm;
 
 class Module extends \ET_Builder_Module {
 
-	public $slug       = 'donation_form';
+	public $slug       = 'give_donation_form';
 	public $vb_support = 'on';
 
 	protected $module_credits = [
 		'module_uri' => '',
-		'author'     => '',
-		'author_uri' => '',
+		'author'     => 'GiveWp',
+		'author_uri' => 'https://givewp.com',
 	];
 
 	public function init() {
 		$this->name = esc_html__( 'Give Donation Form', 'give-divi' );
 	}
 
+	/**
+	 * Get module fields
+	 *
+	 * @return array[]
+	 */
 	public function get_fields() {
+		$donationForms     = $this->getDonationForms();
+		$donationFormsKeys = array_map( 'strval', array_keys( $donationForms ) ); // Divi builder module requires array values to be a string
+
 		return [
-			'donationFormId'      => [
-				'label'   => esc_html__( 'Select Donation form', 'give-divi' ),
-				'type'    => 'select',
-				'options' => $this->getDonationForms(),
+			'id'            => [
+				'label'           => esc_html__( 'Select Donation form', 'give-divi' ),
+				'type'            => 'select',
+				'option_category' => 'basic_option',
+				'options'         => [ esc_html__( 'Select form', 'give-divi' ) ] + $donationForms,
 			],
-			'donationFormFormat'  => [
-				'label'   => esc_html__( 'Donation form format', 'give-divi' ),
-				'type'    => 'select',
-				'options' => $this->getDonationFormFormats(),
-				'default' => 'onpage',
+			'display_style' => [
+				'label'           => esc_html__( 'Donation form format', 'give-divi' ),
+				'type'            => 'select',
+				'option_category' => 'basic_option',
+				'options'         => $this->getDonationFormFormats(),
+				'default'         => 'onpage',
+				'show_if'         => [
+					'id' => $donationFormsKeys,
+				],
 			],
-			'displayFormTitle'    => [
-				'label'   => esc_html__( 'Display form title', 'give-divi' ),
-				'type'    => 'yes_no_button',
-				'options' => [ 'off', 'on' ],
-				'default' => 'on',
+			'show_title'    => [
+				'label'           => esc_html__( 'Display form title', 'give-divi' ),
+				'type'            => 'yes_no_button',
+				'option_category' => 'basic_option',
+				'options'         => [ 'off', 'on' ],
+				'default'         => 'on',
+				'show_if'         => [
+					'id' => $donationFormsKeys,
+				],
 			],
-			'displayDonationGoal' => [
-				'label'   => esc_html__( 'Display Donation goal', 'give-divi' ),
-				'type'    => 'yes_no_button',
-				'options' => [ 'off', 'on' ],
-				'default' => 'on',
+			'show_goal'     => [
+				'label'           => esc_html__( 'Display Donation goal', 'give-divi' ),
+				'type'            => 'yes_no_button',
+				'option_category' => 'basic_option',
+				'options'         => [ 'off', 'on' ],
+				'default'         => 'on',
+				'show_if'         => [
+					'id' => $donationFormsKeys,
+				],
 			],
 		];
 	}
 
+	/**
+	 * Render donation form
+	 *
+	 * @param  array  $attrs
+	 * @param  null  $content
+	 * @param  string  $render_slug
+	 *
+	 * @return string|void
+	 * @since 1.0.0
+	 */
 	public function render( $attrs, $content = null, $render_slug ) {
-		return sprintf( '<h1>%1$s</h1>', $this->props['donationFormId'] );
+		if ( ! boolval( $attrs['id'] ) ) {
+			return;
+		}
+
+		$atts = [
+			'id'            => $attrs['id'],
+			'display_style' => isset( $attrs['display_style'] ) ? $attrs['display_style'] : 'onpage',
+			'show_title'    => isset( $attrs['show_title'] ) ? filter_var( $attrs['show_title'], FILTER_VALIDATE_BOOLEAN ) : true,
+			'show_goal'     => isset( $attrs['show_goal'] ) ? filter_var( $attrs['show_goal'], FILTER_VALIDATE_BOOLEAN ) : true,
+		];
+
+		return give_form_shortcode( $atts );
 	}
 
 	/**
 	 * Get donation forms
 	 *
 	 * @return array
+	 * @since 1.0.0
 	 */
 	private function getDonationForms() {
 		$forms = [];
@@ -73,6 +116,12 @@ class Module extends \ET_Builder_Module {
 		return $forms;
 	}
 
+	/**
+	 * Get Donation form formats
+	 *
+	 * @return array
+	 * @since 1.0.0
+	 */
 	private function getDonationFormFormats() {
 		return [
 			'onpage' => esc_html__( 'Full form', 'give-divi' ),
