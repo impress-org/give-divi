@@ -8,30 +8,33 @@ export default class DonationForm extends React.Component {
 
 	constructor( props ) {
 		super( props );
+
+		const { id, style, title, goal } = props;
+
 		this.state = {
-			id: props.id,
-			displayStyle: props.displayStyle,
-			showTitle: props.showTitle,
-			showGoal: props.showGoal,
+			id,
+			style,
+			title,
+			goal,
 			fetching: false,
 			content: null,
 		};
 	}
 
 	getSnapshotBeforeUpdate( prevProps ) {
-		const { id, displayStyle, showTitle, showGoal } = this.props;
+		const { id, style, title, goal } = this.props;
 
 		if (
 			prevProps.id !== id ||
-			prevProps.displayStyle !== displayStyle ||
-			prevProps.showTitle !== showTitle ||
-			prevProps.showGoal !== showGoal
+			prevProps.style !== style ||
+			prevProps.title !== title ||
+			prevProps.goal !== goal
 		) {
 			return {
 				id,
-				displayStyle,
-				showTitle: showTitle === 'on',
-				showGoal: showGoal === 'on',
+				style,
+				title: title === 'on',
+				goal: goal === 'on',
 			};
 		}
 
@@ -43,9 +46,9 @@ export default class DonationForm extends React.Component {
 			this.fetchDonationForm(
 				{
 					id: this.state.id,
-					displayStyle: this.state.displayStyle,
-					showTitle: this.state.showTitle === 'on',
-					showGoal: this.state.showGoal === 'on',
+					style: this.state.style,
+					title: this.state.title === 'on',
+					goal: this.state.goal === 'on',
 				}
 			);
 		}

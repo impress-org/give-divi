@@ -27,13 +27,13 @@ class Module extends \ET_Builder_Module {
 		$donationFormsKeys = array_map( 'strval', array_keys( $donationForms ) ); // Divi builder module requires array values to be a string
 
 		return [
-			'id'           => [
+			'id'    => [
 				'label'           => esc_html__( 'Select Donation form', 'give-divi' ),
 				'type'            => 'select',
 				'option_category' => 'basic_option',
 				'options'         => [ esc_html__( 'Select form', 'give-divi' ) ] + $donationForms,
 			],
-			'displayStyle' => [
+			'style' => [
 				'label'           => esc_html__( 'Donation form format', 'give-divi' ),
 				'type'            => 'select',
 				'option_category' => 'basic_option',
@@ -43,7 +43,7 @@ class Module extends \ET_Builder_Module {
 					'id' => $donationFormsKeys,
 				],
 			],
-			'showTitle'    => [
+			'title' => [
 				'label'           => esc_html__( 'Display form title', 'give-divi' ),
 				'type'            => 'yes_no_button',
 				'option_category' => 'basic_option',
@@ -53,7 +53,7 @@ class Module extends \ET_Builder_Module {
 					'id' => $donationFormsKeys,
 				],
 			],
-			'showGoal'     => [
+			'goal'  => [
 				'label'           => esc_html__( 'Display Donation goal', 'give-divi' ),
 				'type'            => 'yes_no_button',
 				'option_category' => 'basic_option',
@@ -83,9 +83,9 @@ class Module extends \ET_Builder_Module {
 
 		$atts = [
 			'id'            => $attrs['id'],
-			'display_style' => isset( $attrs['displaystyle'] ) ? $attrs['displaystyle'] : 'onpage',
-			'show_title'    => isset( $attrs['showtitle'] ) ? filter_var( $attrs['showtitle'], FILTER_VALIDATE_BOOLEAN ) : true,
-			'show_goal'     => isset( $attrs['showgoal'] ) ? filter_var( $attrs['showgoal'], FILTER_VALIDATE_BOOLEAN ) : true,
+			'display_style' => isset( $attrs['style'] ) ? $attrs['style'] : 'onpage',
+			'show_title'    => isset( $attrs['title'] ) ? filter_var( $attrs['title'], FILTER_VALIDATE_BOOLEAN ) : true,
+			'show_goal'     => isset( $attrs['goal'] ) ? filter_var( $attrs['goal'], FILTER_VALIDATE_BOOLEAN ) : true,
 		];
 
 		return give_form_shortcode( $atts );

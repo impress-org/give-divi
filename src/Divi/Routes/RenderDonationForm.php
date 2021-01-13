@@ -28,20 +28,20 @@ class RenderDonationForm extends Endpoint {
 					'callback'            => [ $this, 'handleRequest' ],
 					'permission_callback' => [ $this, 'permissionsCheck' ],
 					'args'                => [
-						'id'           => [
+						'id'    => [
 							'type'     => 'integer',
 							'required' => true,
 						],
-						'displayStyle' => [
+						'style' => [
 							'type'     => 'string',
 							'required' => true,
 						],
-						'showTitle'    => [
+						'title' => [
 							'type'     => 'boolean',
 							'required' => false,
 							'default'  => true,
 						],
-						'showGoal'     => [
+						'goal'  => [
 							'type'     => 'boolean',
 							'required' => false,
 							'default'  => true,
@@ -64,19 +64,19 @@ class RenderDonationForm extends Endpoint {
 			'title'      => 'give-divi',
 			'type'       => 'object',
 			'properties' => [
-				'id'           => [
+				'id'    => [
 					'type'        => 'integer',
 					'description' => esc_html__( 'Donation Form id', 'give-divi' ),
 				],
-				'displayStyle' => [
+				'style' => [
 					'type'        => 'string',
 					'description' => esc_html__( 'Donation Form  display style', 'give-divi' ),
 				],
-				'showTitle'    => [
+				'title' => [
 					'type'        => 'boolean',
 					'description' => esc_html__( 'Show Donation Form title', 'give-divi' ),
 				],
-				'showGoal'     => [
+				'goal'  => [
 					'type'        => 'boolean',
 					'description' => esc_html__( 'Show Donation Form goal', 'give-divi' ),
 				],
@@ -93,9 +93,9 @@ class RenderDonationForm extends Endpoint {
 	public function handleRequest( WP_REST_Request $request ) {
 		$attributes = [
 			'id'            => $request->get_param( 'id' ),
-			'display_style' => $request->get_param( 'displayStyle' ),
-			'show_title'    => $request->get_param( 'showTitle' ),
-			'show_goal'     => $request->get_param( 'showGoal' ),
+			'display_style' => $request->get_param( 'style' ),
+			'show_title'    => $request->get_param( 'title' ),
+			'show_goal'     => $request->get_param( 'goal' ),
 		];
 
 		return new WP_REST_Response(
