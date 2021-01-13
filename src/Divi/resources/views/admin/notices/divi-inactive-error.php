@@ -3,6 +3,7 @@
 <div class="notice notice-error">
 	<p>
 		<strong><?php esc_html_e( 'Activation Error:', 'give-divi' ); ?></strong>
-		<?php sprintf( esc_html_e( '%s add-on requires Divi theme to be activated.', 'give-divi' ), GIVE_DIVI_ADDON_NAME ); ?>
+		<?php echo GIVE_DIVI_ADDON_NAME; ?>
+		<?php esc_html_e( 'add-on requires Divi builder to be activated.', 'give-divi' ); ?>
 	</p>
 </div>
