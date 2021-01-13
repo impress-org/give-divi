@@ -23,5 +23,14 @@ class Assets {
 			GIVE_DIVI_ADDON_VERSION,
 			true
 		);
+
+		wp_localize_script(
+			'give-divi-script',
+			'GiveDivi',
+			[
+				'apiRoot'  => esc_url_raw( rest_url( 'give-api/v2/give-divi' ) ),
+				'apiNonce' => wp_create_nonce( 'wp_rest' ),
+			]
+		);
 	}
 }
