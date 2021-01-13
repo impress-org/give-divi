@@ -4,9 +4,11 @@ namespace GiveDivi\Divi;
 
 use Give\Helpers\Hooks;
 use Give\ServiceProviders\ServiceProvider;
+use GiveDivi\Addon\Environment;
 use GiveDivi\Addon\License;
 use GiveDivi\Addon\Language;
 use GiveDivi\Addon\ActivationBanner;
+use GiveDivi\Divi\Helpers\Assets;
 use GiveDivi\Divi\Helpers\Modules;
 use GiveDivi\Divi\Routes\RenderDonationForm;
 
@@ -32,8 +34,11 @@ class AddonServiceProvider implements ServiceProvider {
 
 		Hooks::addAction( 'admin_init', License::class, 'check' );
 		Hooks::addAction( 'admin_init', ActivationBanner::class, 'show', 20 );
-		// Load backend assets.
-		Hooks::addAction( 'wp_enqueue_scripts', Assets::class, 'loadAssets' );
+
+		// Load add-on assets only if Divi builder is active
+		if ( Environment::isDiviBuilderActive() ) {
+			Hooks::addAction( 'wp_enqueue_scripts', Assets::class, 'loadAssets' );
+		}
 
 		Hooks::addAction( 'rest_api_init', RenderDonationForm::class, 'registerRoute' );
 
