@@ -1,6 +1,6 @@
 <?php
 
-namespace GiveDivi\Divi;
+namespace GiveDivi\Divi\Helpers;
 
 /**
  * Helper class responsible for loading add-on assets.
