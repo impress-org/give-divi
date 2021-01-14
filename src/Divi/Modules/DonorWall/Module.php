@@ -209,44 +209,4 @@ class Module extends \ET_Builder_Module {
 
 		return $donorWall->render_shortcode( $attributes );
 	}
-
-	/**
-	 * Get donation forms
-	 *
-	 * @return array
-	 * @since 1.0.0
-	 */
-	private function getDonationForms() {
-		$forms = [];
-
-		$forms_query = new \Give_Forms_Query(
-			[
-				'number'      => - 1,
-				'post_status' => 'publish',
-			]
-		);
-
-		$result = $forms_query->get_forms();
-
-		foreach ( $result as $form ) {
-			$forms[ $form->ID ] = $form->post_title;
-		}
-
-		return $forms;
-	}
-
-	/**
-	 * Get Donation form formats
-	 *
-	 * @return array
-	 * @since 1.0.0
-	 */
-	private function getDonationFormFormats() {
-		return [
-			'onpage' => esc_html__( 'Full form', 'give-divi' ),
-			'modal'  => esc_html__( 'Modal', 'give-divi' ),
-			'reveal' => esc_html__( 'Reveal', 'give-divi' ),
-			'button' => esc_html__( 'One Button Launch', 'give-divi' ),
-		];
-	}
 }
