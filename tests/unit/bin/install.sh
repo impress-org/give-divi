@@ -107,14 +107,6 @@ install_db() {
 	mysqladmin create $DB_NAME --user="$DB_USER" --password="$DB_PASS"$EXTRA
 }
 
-install_plugins() {
-	svn co https://plugins.svn.wordpress.org/give/trunk/ $WP_CORE_DIR/wp-content/plugins/give
-	# unzip /tmp/give.zip -d $WP_CORE_DIR/wp-content/plugins
-
-	unzip "$(pwd)/tests/unit/divi-builder.zip" -d $WP_CORE_DIR/wp-content/plugins
-}
-
-# install_wp
-# install_test_suite
-# install_db
-install_plugins
+install_wp
+install_test_suite
+install_db
