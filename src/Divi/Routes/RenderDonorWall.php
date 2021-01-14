@@ -12,7 +12,7 @@ use WP_REST_Response;
 class RenderDonorWall extends Endpoint {
 
 	/** @var string */
-	protected $endpoint = 'give-divi/render-donation-form';
+	protected $endpoint = 'give-divi/render-donor-wall';
 
 
 	/**
@@ -218,7 +218,6 @@ class RenderDonorWall extends Endpoint {
 		$attributes = [
 			'donors_per_page'   => $request->get_param( 'show' ),
 			'form_id'           => $request->get_param( 'form' ),
-			'paged'             => 1,
 			'ids'               => $request->get_param( 'ids' ),
 			'columns'           => $request->get_param( 'columns' ),
 			'anonymous'         => $request->get_param( 'anonymous' ),
@@ -237,10 +236,12 @@ class RenderDonorWall extends Endpoint {
 			'order'             => $request->get_param( 'order' ),
 		];
 
+		$donorWall = \Give_Donor_Wall::get_instance();
+
 		return new WP_REST_Response(
 			[
 				'status'  => true,
-				'content' => give_donor_wall( $attributes ),
+				'content' => $donorWall->render_shortcode( $attributes ),
 			]
 		);
 	}
