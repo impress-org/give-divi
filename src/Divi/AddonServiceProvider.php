@@ -11,6 +11,7 @@ use GiveDivi\Addon\ActivationBanner;
 use GiveDivi\Divi\Helpers\Assets;
 use GiveDivi\Divi\Helpers\Modules;
 use GiveDivi\Divi\Routes\RenderDonationForm;
+use GiveDivi\Divi\Routes\RenderDonorWall;
 
 /**
  * Service provider responsible for add-on initialization.
@@ -40,7 +41,9 @@ class AddonServiceProvider implements ServiceProvider {
 			Hooks::addAction( 'wp_enqueue_scripts', Assets::class, 'loadAssets' );
 		}
 
+		// Rest routes
 		Hooks::addAction( 'rest_api_init', RenderDonationForm::class, 'registerRoute' );
+		Hooks::addAction( 'rest_api_init', RenderDonorWall::class, 'registerRoute' );
 
 		// Load GiveWP Divi modules
 		add_action(
