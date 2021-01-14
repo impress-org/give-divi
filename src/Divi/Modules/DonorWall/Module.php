@@ -184,14 +184,30 @@ class Module extends \ET_Builder_Module {
 	 * @since 1.0.0
 	 */
 	public function render( $attrs, $content = null, $render_slug ) {
-		$atts = [
-			'id'            => $attrs['id'],
-			'display_style' => isset( $attrs['style'] ) ? $attrs['style'] : 'onpage',
-			'show_title'    => isset( $attrs['title'] ) ? filter_var( $attrs['title'], FILTER_VALIDATE_BOOLEAN ) : true,
-			'show_goal'     => isset( $attrs['goal'] ) ? filter_var( $attrs['goal'], FILTER_VALIDATE_BOOLEAN ) : true,
+		$attributes = [
+			'donors_per_page'   => isset( $attrs['show'] ) ? (int) $attrs['show'] : 12,
+			'form_id'           => isset( $attrs['form'] ) ? (int) $attrs['form'] : 0,
+			'ids'               => isset( $attrs['ids'] ) ? $attrs['ids'] : '',
+			'columns'           => isset( $attrs['columns'] ) ? $attrs['columns'] : 'best-fit',
+			'anonymous'         => isset( $attrs['anonymous'] ) ? filter_var( $attrs['anonymous'], FILTER_VALIDATE_BOOLEAN ) : true,
+			'show_avatar'       => isset( $attrs['avatar'] ) ? filter_var( $attrs['avatar'], FILTER_VALIDATE_BOOLEAN ) : true,
+			'show_name'         => isset( $attrs['name'] ) ? filter_var( $attrs['name'], FILTER_VALIDATE_BOOLEAN ) : true,
+			'show_company_name' => isset( $attrs['company'] ) ? filter_var( $attrs['company'], FILTER_VALIDATE_BOOLEAN ) : false,
+			'show_total'        => isset( $attrs['total'] ) ? filter_var( $attrs['total'], FILTER_VALIDATE_BOOLEAN ) : true,
+			'show_time'         => isset( $attrs['time'] ) ? filter_var( $attrs['time'], FILTER_VALIDATE_BOOLEAN ) : true,
+			'show_comments'     => isset( $attrs['comments'] ) ? filter_var( $attrs['comments'], FILTER_VALIDATE_BOOLEAN ) : true,
+			'comment_length'    => isset( $attrs['commentlength'] ) ? (int) $attrs['commentlength'] : 140,
+			'only_comments'     => isset( $attrs['withcomments'] ) ? filter_var( $attrs['withcomments'], FILTER_VALIDATE_BOOLEAN ) : false,
+			'readmore_text'     => isset( $attrs['readtext'] ) ? $attrs['readtext'] : esc_html__( 'Read More Text', 'give-divi' ),
+			'loadmore_text'     => isset( $attrs['loadtext'] ) ? $attrs['loadtext'] : esc_html__( 'Load More Text', 'give-divi' ),
+			'avatar_size'       => isset( $attrs['avatarsize'] ) ? (int) $attrs['avatarsize'] : 60,
+			'orderby'           => isset( $attrs['orderby'] ) ? $attrs['orderby'] : 'donation_amount',
+			'order'             => isset( $attrs['order'] ) ? $attrs['order'] : 'DESC',
 		];
 
-		return give_form_shortcode( $atts );
+		$donorWall = \Give_Donor_Wall::get_instance();
+
+		return $donorWall->render_shortcode( $attributes );
 	}
 
 	/**
