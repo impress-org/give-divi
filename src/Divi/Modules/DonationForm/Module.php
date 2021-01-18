@@ -15,6 +15,16 @@ class Module extends \ET_Builder_Module {
 
 	public function init() {
 		$this->name = esc_html__( 'Give Donation Form', 'give-divi' );
+
+		// Load script to reveal the iframe
+		if ( isset( $_GET['rest'] ) ) {
+			add_action(
+				'give_embed_footer',
+				function () {
+					printf( '<script src="%s"></script>', GIVE_DIVI_ADDON_URL . 'public/js/reveal-iframe.js' );
+				}
+			);
+		}
 	}
 
 	/**
