@@ -5,9 +5,11 @@ namespace GiveDivi\Divi\Helpers;
 // Modules
 use GiveDivi\Divi\Modules\DonationForm\Module as DonationFormModule;
 use GiveDivi\Divi\Modules\DonorWall\Module as DonorWallModule;
+use GiveDivi\Divi\Modules\FormGoal\Module as FormGoalModule;
 // Module routes Routes
 use GiveDivi\Divi\Routes\RenderDonationForm;
 use GiveDivi\Divi\Routes\RenderDonorWall;
+use GiveDivi\Divi\Routes\RenderFormGoal;
 
 /**
  * Class Modules
@@ -28,6 +30,10 @@ class Modules {
 			[
 				'module' => DonorWallModule::class,
 				'route'  => RenderDonorWall::class,
+			],
+			[
+				'module' => FormGoalModule::class,
+				'route'  => RenderFormGoal::class,
 			],
 		];
 	}
