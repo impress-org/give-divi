@@ -10,8 +10,6 @@ use GiveDivi\Addon\Language;
 use GiveDivi\Addon\ActivationBanner;
 use GiveDivi\Divi\Helpers\Assets;
 use GiveDivi\Divi\Helpers\Modules;
-use GiveDivi\Divi\Routes\RenderDonationForm;
-use GiveDivi\Divi\Routes\RenderDonorWall;
 
 /**
  * Service provider responsible for add-on initialization.
@@ -42,8 +40,9 @@ class AddonServiceProvider implements ServiceProvider {
 		}
 
 		// Rest routes
-		Hooks::addAction( 'rest_api_init', RenderDonationForm::class, 'registerRoute' );
-		Hooks::addAction( 'rest_api_init', RenderDonorWall::class, 'registerRoute' );
+		foreach ( Modules::getRoutes() as $moduleRoute ) {
+			Hooks::addAction( 'rest_api_init', $moduleRoute, 'registerRoute' );
+		}
 
 		// Load GiveWP Divi modules
 		add_action(
