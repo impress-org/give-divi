@@ -2,16 +2,35 @@
 
 namespace GiveDivi\Divi\Modules\DonationForm;
 
+use GiveDivi\Divi\Repositories\Forms;
+
 class Module extends \ET_Builder_Module {
 
-	public $slug       = 'give_donation_form';
-	public $vb_support = 'on';
+	public $slug;
+	public $vb_support;
 
 	protected $module_credits = [
 		'module_uri' => '',
 		'author'     => 'GiveWp',
 		'author_uri' => 'https://givewp.com',
 	];
+	/**
+	 * @var Forms
+	 */
+	private $forms;
+
+	/**
+	 * Module constructor.
+	 *
+	 * @param  Forms  $forms
+	 */
+	public function __construct( Forms $forms ) {
+		$this->forms      = $forms;
+		$this->slug       = 'give_donation_form';
+		$this->vb_support = 'on';
+
+		parent::__construct();
+	}
 
 	public function init() {
 		$this->name = esc_html__( 'Give Donation Form', 'give-divi' );
@@ -33,7 +52,7 @@ class Module extends \ET_Builder_Module {
 	 * @return array[]
 	 */
 	public function get_fields() {
-		$donationForms     = $this->getDonationForms();
+		$donationForms     = $this->forms->getAll();
 		$donationFormsKeys = array_map( 'strval', array_keys( $donationForms ) ); // Divi builder module requires array values to be a string
 
 		return [
@@ -47,7 +66,7 @@ class Module extends \ET_Builder_Module {
 				'label'           => esc_html__( 'Donation form format', 'give-divi' ),
 				'type'            => 'select',
 				'option_category' => 'basic_option',
-				'options'         => $this->getDonationFormFormats(),
+				'options'         => $this->forms->getFormFormats(),
 				'default'         => 'onpage',
 				'show_if'         => [
 					'id' => $donationFormsKeys,
@@ -101,43 +120,4 @@ class Module extends \ET_Builder_Module {
 		return give_form_shortcode( $atts );
 	}
 
-	/**
-	 * Get donation forms
-	 *
-	 * @return array
-	 * @since 1.0.0
-	 */
-	private function getDonationForms() {
-		$forms = [];
-
-		$forms_query = new \Give_Forms_Query(
-			[
-				'number'      => - 1,
-				'post_status' => 'publish',
-			]
-		);
-
-		$result = $forms_query->get_forms();
-
-		foreach ( $result as $form ) {
-			$forms[ $form->ID ] = $form->post_title;
-		}
-
-		return $forms;
-	}
-
-	/**
-	 * Get Donation form formats
-	 *
-	 * @return array
-	 * @since 1.0.0
-	 */
-	private function getDonationFormFormats() {
-		return [
-			'onpage' => esc_html__( 'Full form', 'give-divi' ),
-			'modal'  => esc_html__( 'Modal', 'give-divi' ),
-			'reveal' => esc_html__( 'Reveal', 'give-divi' ),
-			'button' => esc_html__( 'One Button Launch', 'give-divi' ),
-		];
-	}
 }
