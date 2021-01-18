@@ -59,7 +59,7 @@ export default class DonationForm extends React.Component {
 			}
 		);
 
-		API.get( '/render-donation-form', { params }, { cancelToken: CancelToken.token } )
+		API.post( '/render-donation-form', params, { cancelToken: CancelToken.token } )
 			.then( ( response ) => {
 				this.setState( {
 					fetching: false,
