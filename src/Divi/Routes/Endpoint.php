@@ -21,7 +21,7 @@ abstract class Endpoint implements RestRoute {
 	 * @return bool|WP_Error
 	 */
 	public function permissionsCheck() {
-		if ( ! current_user_can( 'manage_options' ) ) {
+		if ( ! current_user_can( 'edit_page' ) ) {
 			return new WP_Error(
 				'rest_forbidden',
 				esc_html__( 'You dont have the right permissions to use Give Divi Add-on', 'give-divi' ),
