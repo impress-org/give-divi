@@ -15,20 +15,192 @@ msgstr ""
 "X-Poedit-SourceCharset: UTF-8\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: src/Divi/Modules/DonationForm/Module.php:17
+#: src/Divi/Repositories/Forms.php:42
+msgid "Full form"
+msgstr ""
+
+#: src/Divi/Repositories/Forms.php:43
+msgid "Modal"
+msgstr ""
+
+#: src/Divi/Repositories/Forms.php:44
+msgid "Reveal"
+msgstr ""
+
+#: src/Divi/Repositories/Forms.php:45
+msgid "One Button Launch"
+msgstr ""
+
+#: src/Divi/Routes/Endpoint.php:27
+msgid "You dont have the right permissions to use Give Divi Add-on"
+msgstr ""
+
+#: src/Divi/Routes/RenderDonationForm.php:69, src/Divi/Routes/RenderFormGoal.php:65
+msgid "Donation Form id"
+msgstr ""
+
+#: src/Divi/Routes/RenderDonationForm.php:73
+msgid "Donation Form  display style"
+msgstr ""
+
+#: src/Divi/Routes/RenderDonationForm.php:77
+msgid "Show Donation Form title"
+msgstr ""
+
+#: src/Divi/Routes/RenderDonationForm.php:81
+msgid "Show Donation Form goal"
+msgstr ""
+
+#: src/Divi/Routes/RenderDonorWall.php:137, src/Divi/Modules/DonorWall/Module.php:28
+msgid "Donors per page"
+msgstr ""
+
+#: src/Divi/Routes/RenderDonorWall.php:141, src/Divi/Modules/DonorWall/Module.php:40
+msgid "Donor IDs"
+msgstr ""
+
+#: src/Divi/Routes/RenderDonorWall.php:145, src/Divi/Modules/DonorWall/Module.php:45
+msgid "Form ID"
+msgstr ""
+
+#: src/Divi/Routes/RenderDonorWall.php:149, src/Divi/Modules/DonorWall/Module.php:51
+msgid "Order By"
+msgstr ""
+
+#: src/Divi/Routes/RenderDonorWall.php:153, src/Divi/Modules/DonorWall/Module.php:61
+msgid "Order"
+msgstr ""
+
+#: src/Divi/Routes/RenderDonorWall.php:157, src/Divi/Modules/DonorWall/Module.php:71
+msgid "Columns"
+msgstr ""
+
+#: src/Divi/Routes/RenderDonorWall.php:161, src/Divi/Modules/DonorWall/Module.php:84
+msgid "Avatar Size"
+msgstr ""
+
+#: src/Divi/Routes/RenderDonorWall.php:165, src/Divi/Modules/DonorWall/Module.php:96
+msgid "Show Avatar"
+msgstr ""
+
+#: src/Divi/Routes/RenderDonorWall.php:169, src/Divi/Modules/DonorWall/Module.php:103
+msgid "Show Name"
+msgstr ""
+
+#: src/Divi/Routes/RenderDonorWall.php:173, src/Divi/Modules/DonorWall/Module.php:110
+msgid "Show Company Name"
+msgstr ""
+
+#: src/Divi/Routes/RenderDonorWall.php:177, src/Divi/Modules/DonorWall/Module.php:117
+msgid "Show Total"
+msgstr ""
+
+#: src/Divi/Routes/RenderDonorWall.php:181, src/Divi/Modules/DonorWall/Module.php:124
+msgid "Show Time"
+msgstr ""
+
+#: src/Divi/Routes/RenderDonorWall.php:185, src/Divi/Modules/DonorWall/Module.php:131
+msgid "Show Comments"
+msgstr ""
+
+#: src/Divi/Routes/RenderDonorWall.php:189, src/Divi/Modules/DonorWall/Module.php:138
+msgid "Show Anonymous"
+msgstr ""
+
+#: src/Divi/Routes/RenderDonorWall.php:193
+msgid "Show Only Donors with Comments"
+msgstr ""
+
+#: src/Divi/Routes/RenderDonorWall.php:197, src/Divi/Modules/DonorWall/Module.php:152
+msgid "Comment Length"
+msgstr ""
+
+#: src/Divi/Routes/RenderDonorWall.php:201, src/Divi/Modules/DonorWall/Module.php:164, src/Divi/Modules/DonorWall/Module.php:201
+msgid "Read More Text"
+msgstr ""
+
+#: src/Divi/Routes/RenderDonorWall.php:205, src/Divi/Modules/DonorWall/Module.php:169, src/Divi/Modules/DonorWall/Module.php:202
+msgid "Load More Text"
+msgstr ""
+
+#: src/Divi/Routes/RenderFormGoal.php:69
+msgid "Show Goal Text"
+msgstr ""
+
+#: src/Divi/Routes/RenderFormGoal.php:73
+msgid "Show Goal Bar"
+msgstr ""
+
+#: src/Divi/Modules/DonationForm/Module.php:36
 msgid "Give Donation Form"
 msgstr ""
 
-#: src/Divi/Modules/DonationForm/Module.php:23
+#: src/Divi/Modules/DonationForm/Module.php:60, src/Divi/Modules/FormGoal/Module.php:61
 msgid "Select Donation form"
 msgstr ""
 
-#: src/Divi/Modules/DonationForm/Module.php:26
-msgid "Select Donation Form"
+#: src/Divi/Modules/DonationForm/Module.php:63, src/Divi/Modules/FormGoal/Module.php:64
+msgid "Select form"
+msgstr ""
+
+#: src/Divi/Modules/DonationForm/Module.php:66
+msgid "Donation form format"
+msgstr ""
+
+#: src/Divi/Modules/DonationForm/Module.php:76
+msgid "Display form title"
+msgstr ""
+
+#: src/Divi/Modules/DonationForm/Module.php:86
+msgid "Display Donation goal"
+msgstr ""
+
+#: src/Divi/Modules/DonorWall/Module.php:17
+msgid "Give Donor wall"
+msgstr ""
+
+#: src/Divi/Modules/DonorWall/Module.php:55
+msgid "Descending"
+msgstr ""
+
+#: src/Divi/Modules/DonorWall/Module.php:56
+msgid "Ascending"
+msgstr ""
+
+#: src/Divi/Modules/DonorWall/Module.php:65
+msgid "Donation Amount"
+msgstr ""
+
+#: src/Divi/Modules/DonorWall/Module.php:66
+msgid "Date Created"
+msgstr ""
+
+#: src/Divi/Modules/DonorWall/Module.php:75
+msgid "Best Fit"
+msgstr ""
+
+#: src/Divi/Modules/DonorWall/Module.php:145
+msgid "Only Donors with Comments"
+msgstr ""
+
+#: src/Divi/Modules/FormGoal/Module.php:47
+msgid "Give Form Goal"
+msgstr ""
+
+#: src/Divi/Modules/FormGoal/Module.php:67
+msgid "Show text"
+msgstr ""
+
+#: src/Divi/Modules/FormGoal/Module.php:77
+msgid "Show bar"
 msgstr ""
 
 #: src/Divi/resources/views/admin/notices/divi-inactive-error.php:5, src/Divi/resources/views/admin/notices/give-inactive.php:5, src/Divi/resources/views/admin/notices/give-version-error.php:4
 msgid "Activation Error:"
+msgstr ""
+
+#: src/Divi/resources/views/admin/notices/divi-inactive-error.php:7
+msgid "add-on requires Divi builder to be activated."
 msgstr ""
 
 #: src/Divi/resources/views/admin/notices/give-inactive.php:6, src/Divi/resources/views/admin/notices/give-version-error.php:6
