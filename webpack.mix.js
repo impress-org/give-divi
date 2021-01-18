@@ -7,6 +7,7 @@ mix
 
 	// admin assets
 	.js( 'src/Divi/resources/js/give-divi.js', 'public/js/' )
+	.js( 'src/Divi/resources/js/reveal-iframe.js', 'public/js/' )
 	// images
 	.copy( 'src/Divi/resources/images/*.{jpg,jpeg,png,gif}', 'public/images' );
 
