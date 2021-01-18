@@ -24,7 +24,7 @@ class RenderDonationForm extends Endpoint {
 			$this->endpoint,
 			[
 				[
-					'methods'             => 'GET',
+					'methods'             => 'POST',
 					'callback'            => [ $this, 'handleRequest' ],
 					'permission_callback' => [ $this, 'permissionsCheck' ],
 					'args'                => [
@@ -96,6 +96,11 @@ class RenderDonationForm extends Endpoint {
 			'display_style' => $request->get_param( 'style' ),
 			'show_title'    => $request->get_param( 'title' ),
 			'show_goal'     => $request->get_param( 'goal' ),
+		];
+
+		$_SERVER['QUERY_STRING'] = [
+			'rest_route' => null, // In order to load the multi step donation form properly, we have to unset the rest_route property
+			'rest'       => true, // used as a flag to determine if reveal iframe script should be loaded
 		];
 
 		return new WP_REST_Response(
