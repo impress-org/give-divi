@@ -4,7 +4,8 @@ import $ from 'jquery';
 import DonationForm from '../../Modules/DonationForm';
 import DonorWall from '../../Modules/DonorWall';
 import FormGoal from '../../Modules/FormGoal';
+import LoginForm from '../../Modules/LoginForm';
 
 $( window ).on( 'et_builder_api_ready', ( event, API ) => {
-	API.registerModules( [ DonationForm, DonorWall, FormGoal ] );
+	API.registerModules( [ DonationForm, DonorWall, FormGoal, LoginForm ] );
 } );
