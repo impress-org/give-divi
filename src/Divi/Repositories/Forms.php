@@ -45,4 +45,29 @@ class Forms {
 			'button' => esc_html__( 'One Button Launch', 'give-divi' ),
 		];
 	}
+
+	/**
+	 * Render registration form
+	 * This method exist because the give_register_form function doesn't render the registration form if user is logged
+	 *
+	 * @param  string  $redirect
+	 *
+	 * @return string
+	 */
+	public function renderRegistrationForm( $redirect = '' ) {
+		if ( empty( $redirect ) ) {
+			$redirect = give_get_current_page_url();
+		}
+
+		ob_start();
+
+		give_get_template(
+			'shortcode-register',
+			[
+				'give_register_redirect' => $redirect,
+			]
+		);
+
+		return apply_filters( 'give_register_form', ob_get_clean() );
+	}
 }
