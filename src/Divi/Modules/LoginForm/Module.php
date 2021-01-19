@@ -2,8 +2,6 @@
 
 namespace GiveDivi\Divi\Modules\LoginForm;
 
-use GiveDivi\Divi\Repositories\Forms;
-
 class Module extends \ET_Builder_Module {
 	/**
 	 * @var string
@@ -21,17 +19,9 @@ class Module extends \ET_Builder_Module {
 	protected $module_credits;
 
 	/**
-	 * @var Forms
-	 */
-	private $forms;
-
-	/**
 	 * Module constructor.
-	 *
-	 * @param  Forms  $forms
 	 */
-	public function __construct( Forms $forms ) {
-		$this->forms          = $forms;
+	public function __construct() {
 		$this->slug           = 'give_login_form';
 		$this->vb_support     = 'on';
 		$this->module_credits = [
