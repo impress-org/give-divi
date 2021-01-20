@@ -8,6 +8,7 @@ use GiveDivi\Divi\Modules\DonorWall\Module as DonorWallModule;
 use GiveDivi\Divi\Modules\FormGoal\Module as FormGoalModule;
 use GiveDivi\Divi\Modules\RegistrationForm\Module as RegistrationFormModule;
 use GiveDivi\Divi\Modules\LoginForm\Module as LoginFormModule;
+use GiveDivi\Divi\Modules\Totals\Module as TotalsModule;
 
 // Module routes Routes
 use GiveDivi\Divi\Routes\RenderDonationForm;
@@ -15,6 +16,7 @@ use GiveDivi\Divi\Routes\RenderDonorWall;
 use GiveDivi\Divi\Routes\RenderFormGoal;
 use GiveDivi\Divi\Routes\RenderRegistrationForm;
 use GiveDivi\Divi\Routes\RenderLoginForm;
+use GiveDivi\Divi\Routes\RenderTotals;
 
 /**
  * Class Modules
@@ -43,10 +45,14 @@ class Modules {
 			[
 				'module' => RegistrationFormModule::class,
 				'route'  => RenderRegistrationForm::class,
-      ],
-      [
+			],
+			[
 				'module' => LoginFormModule::class,
 				'route'  => RenderLoginForm::class,
+			],
+			[
+				'module' => TotalsModule::class,
+				'route'  => RenderTotals::class,
 			],
 		];
 	}
