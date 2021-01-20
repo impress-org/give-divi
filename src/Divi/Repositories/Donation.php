@@ -8,39 +8,30 @@ namespace GiveDivi\Divi\Repositories;
 class Donation {
 
 	/**
-	 * Get last donation id from the revenue table
+	 * Get Donor's last donation id
+	 *
+	 * @param int $donorId
+	 *
 	 * @return int
 	 */
-	public function getLastDonationId() {
-		global $wpdb;
+	public function getLastDonationId( $donorId ) {
+		if ( ! $donorId ) {
+			return 0;
+		}
 
-		return $wpdb->get_var(
-			"
-			SELECT donation_id 
-			FROM {$wpdb->prefix}give_revenue
-			ORDER BY donation_id DESC 
-			LIMIT 1
-			"
+		$post = get_posts(
+			[
+				'post_type'   => 'give_payment',
+				'post_status' => 'publish',
+				'author'      => $donorId,
+				'numberposts' => 1,
+			]
 		);
 
-	}
+		if ( empty( $post ) ) {
+			return 0;
+		}
 
-	/**
-	 * Get donation receipt preview
-	 *
-	 * @param array $attributes
-	 *
-	 * @return string
-	 * @since 1.0.0
-	 */
-	public function getReceiptPreview( $attributes ) {
-		global $give_receipt_args, $donation;
-
-		$donation          = $this->getLastDonationId();
-		$give_receipt_args = $attributes;
-
-		ob_start();
-		give_get_template_part( 'shortcode', 'receipt' );
-		return ob_get_clean();
+		return $post[0]->ID;
 	}
 }
