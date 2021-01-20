@@ -45,6 +45,15 @@ class Module extends \ET_Builder_Module {
 	 */
 	public function get_fields() {
 		return [
+			'donation_id'    => [
+				'label'           => 'Donation ID',
+				'type'            => 'text',
+				'option_category' => 'basic_option',
+				'default'         => $this->donation->getLastDonationId( get_current_user_id() ),
+				'show_if'         => [
+					'donor' => 'none', // always hidden
+				],
+			],
 			'donor'          => [
 				'label'           => esc_html__( 'Display donor', 'give-divi' ),
 				'type'            => 'yes_no_button',
@@ -133,7 +142,7 @@ class Module extends \ET_Builder_Module {
 			'error'          => isset( $attrs['error'] ) ? esc_attr( $attrs['error'] ) : '',
 		];
 
-		return $this->donation->getReceiptPreview( $attributes );
+		return  give_receipt_shortcode( $attributes );
 	}
 
 }
