@@ -2,7 +2,6 @@
 
 namespace GiveDivi\Divi\Routes;
 
-use GiveDivi\Divi\Repositories\Donation;
 use WP_REST_Request;
 use WP_REST_Response;
 
@@ -14,20 +13,6 @@ class RenderDonationReceipt extends Endpoint {
 
 	/** @var string */
 	protected $endpoint = 'give-divi/render-donation-receipt';
-
-	/**
-	 * @var Donation
-	 */
-	private $donation;
-
-	/**
-	 * RenderDonationReceipt constructor.
-	 *
-	 * @param  Donation  $donation
-	 */
-	public function __construct( Donation $donation ) {
-		$this->donation = $donation;
-	}
 
 	/**
 	 * @inheritDoc
@@ -166,7 +151,7 @@ class RenderDonationReceipt extends Endpoint {
 		return new WP_REST_Response(
 			[
 				'status'  => true,
-				'content' => $this->donation->getReceiptPreview( $attributes ),
+				'content' => give_display_donation_receipt( $attributes ),
 			]
 		);
 	}
