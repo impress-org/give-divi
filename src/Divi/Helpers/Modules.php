@@ -6,17 +6,23 @@ namespace GiveDivi\Divi\Helpers;
 use GiveDivi\Divi\Modules\DonationForm\Module as DonationFormModule;
 use GiveDivi\Divi\Modules\DonorWall\Module as DonorWallModule;
 use GiveDivi\Divi\Modules\FormGoal\Module as FormGoalModule;
+use GiveDivi\Divi\Modules\DonationReceipt\Module as DonationReceiptModule;
 use GiveDivi\Divi\Modules\RegistrationForm\Module as RegistrationFormModule;
 use GiveDivi\Divi\Modules\LoginForm\Module as LoginFormModule;
 use GiveDivi\Divi\Modules\FormGrid\Module as FormGridModule;
+use GiveDivi\Divi\Modules\Totals\Module as TotalsModule;
+use GiveDivi\Divi\Modules\ProfileEditor\Module as ProfileEditorModule;
 
 // Module routes Routes
 use GiveDivi\Divi\Routes\RenderDonationForm;
 use GiveDivi\Divi\Routes\RenderDonorWall;
 use GiveDivi\Divi\Routes\RenderFormGoal;
+use GiveDivi\Divi\Routes\RenderDonationReceipt;
 use GiveDivi\Divi\Routes\RenderRegistrationForm;
 use GiveDivi\Divi\Routes\RenderLoginForm;
 use GiveDivi\Divi\Routes\RenderFormGrid;
+use GiveDivi\Divi\Routes\RenderTotals;
+use GiveDivi\Divi\Routes\RenderProfileEditor;
 
 /**
  * Class Modules
@@ -43,6 +49,10 @@ class Modules {
 				'route'  => RenderFormGoal::class,
 			],
 			[
+				'module' => DonationReceiptModule::class,
+				'route'  => RenderDonationReceipt::class,
+      ],
+      [
 				'module' => RegistrationFormModule::class,
 				'route'  => RenderRegistrationForm::class,
 			],
@@ -53,6 +63,14 @@ class Modules {
 			[
 				'module' => FormGridModule::class,
 				'route'  => RenderFormGrid::class,
+      ],
+      [
+				'module' => TotalsModule::class,
+				'route'  => RenderTotals::class,
+      ],
+      [
+				'module' => ProfileEditorModule::class,
+				'route'  => RenderProfileEditor::class,
 			],
 		];
 	}
