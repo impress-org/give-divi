@@ -2,7 +2,7 @@ import React from 'react';
 import API, { CancelToken } from '../../resources/js/api';
 import parse from 'html-react-parser';
 
-export default class DonorWall extends React.Component {
+export default class FormGoal extends React.Component {
 	static slug = 'give_form_goal';
 
 	constructor( props ) {
