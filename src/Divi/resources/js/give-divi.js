@@ -6,8 +6,9 @@ import DonorWall from '../../Modules/DonorWall';
 import FormGoal from '../../Modules/FormGoal';
 import RegistrationForm from '../../Modules/RegistrationForm';
 import LoginForm from '../../Modules/LoginForm';
+import Totals from '../../Modules/Totals';
 import ProfileEditor from '../../Modules/ProfileEditor';
 
 $( window ).on( 'et_builder_api_ready', ( event, API ) => {
-	API.registerModules( [ DonationForm, DonorWall, FormGoal, RegistrationForm, LoginForm, ProfileEditor ] );
+	API.registerModules( [ DonationForm, DonorWall, FormGoal, RegistrationForm, LoginForm, Totals, ProfileEditor ] )
 } );
