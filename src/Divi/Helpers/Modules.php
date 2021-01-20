@@ -6,6 +6,7 @@ namespace GiveDivi\Divi\Helpers;
 use GiveDivi\Divi\Modules\DonationForm\Module as DonationFormModule;
 use GiveDivi\Divi\Modules\DonorWall\Module as DonorWallModule;
 use GiveDivi\Divi\Modules\FormGoal\Module as FormGoalModule;
+use GiveDivi\Divi\Modules\DonationReceipt\Module as DonationReceiptModule;
 use GiveDivi\Divi\Modules\RegistrationForm\Module as RegistrationFormModule;
 use GiveDivi\Divi\Modules\LoginForm\Module as LoginFormModule;
 use GiveDivi\Divi\Modules\Totals\Module as TotalsModule;
@@ -15,6 +16,7 @@ use GiveDivi\Divi\Modules\ProfileEditor\Module as ProfileEditorModule;
 use GiveDivi\Divi\Routes\RenderDonationForm;
 use GiveDivi\Divi\Routes\RenderDonorWall;
 use GiveDivi\Divi\Routes\RenderFormGoal;
+use GiveDivi\Divi\Routes\RenderDonationReceipt;
 use GiveDivi\Divi\Routes\RenderRegistrationForm;
 use GiveDivi\Divi\Routes\RenderLoginForm;
 use GiveDivi\Divi\Routes\RenderTotals;
@@ -45,6 +47,10 @@ class Modules {
 				'route'  => RenderFormGoal::class,
 			],
 			[
+				'module' => DonationReceiptModule::class,
+				'route'  => RenderDonationReceipt::class,
+      ],
+      [
 				'module' => RegistrationFormModule::class,
 				'route'  => RenderRegistrationForm::class,
 			],
