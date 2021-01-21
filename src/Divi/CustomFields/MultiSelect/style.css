@@ -1,0 +1,26 @@
+.multi-select {
+	position: relative;
+	z-index: 9999 !important;
+}
+
+.dropdown-heading {
+	background-color: #F1F5F9 !important;
+	width: 100%;
+	border: 0 !important;
+	border-radius: 3px;
+	box-shadow: none;
+	margin: 0;
+	padding: 5px 10px;
+	color: #4c5866 !important;
+	font-family: Open Sans,Helvetica,Roboto,Arial,sans-serif;
+	font-size: 13px;
+	font-weight: 600;
+	height: 30px;
+	display: inline-block;
+}
+
+.select-item {
+	color: #4c5866 !important;
+	font-size: 13px !important;
+	font-weight: 600 !important;
+}
