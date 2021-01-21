@@ -14,7 +14,7 @@
         "lint:js": "eslint src/**/resources/**/*.js",
         "lint:js-fix": "eslint src/**/resources/**/*.js --fix",
         "lint:php": "./vendor/bin/phpcs -v -s --colors",
-        "lint:php:fix": "./vendor/bin/phpcbf src/* -v --colors",
+        "lint:php:fix": "./vendor/bin/phpcbf -v --colors",
         "lint:textdomain": "node ./wp-textdomain.js",
         "lint:scss": "stylelint src/**/resources/**/*.scss"
     },
