@@ -9,7 +9,8 @@ import RegistrationForm from '../../Modules/RegistrationForm';
 import LoginForm from '../../Modules/LoginForm';
 import Totals from '../../Modules/Totals';
 import ProfileEditor from '../../Modules/ProfileEditor';
+import SubscriptionsTable from '../../Modules/SubscriptionsTable';
 
 $( window ).on( 'et_builder_api_ready', ( event, API ) => {
-	API.registerModules( [ DonationForm, DonorWall, FormGoal, DonationReceipt, RegistrationForm, LoginForm, Totals, ProfileEditor ] )
+	API.registerModules( [ DonationForm, DonorWall, FormGoal, DonationReceipt, RegistrationForm, LoginForm, Totals, ProfileEditor, SubscriptionsTable ] );
 } );
