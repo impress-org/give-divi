@@ -12,6 +12,7 @@ use GiveDivi\Divi\Modules\LoginForm\Module as LoginFormModule;
 use GiveDivi\Divi\Modules\FormGrid\Module as FormGridModule;
 use GiveDivi\Divi\Modules\Totals\Module as TotalsModule;
 use GiveDivi\Divi\Modules\ProfileEditor\Module as ProfileEditorModule;
+use GiveDivi\Divi\Modules\DonationHistory\Module as DonationHistoryModule;
 
 // Module routes Routes
 use GiveDivi\Divi\Routes\RenderDonationForm;
@@ -23,6 +24,7 @@ use GiveDivi\Divi\Routes\RenderLoginForm;
 use GiveDivi\Divi\Routes\RenderFormGrid;
 use GiveDivi\Divi\Routes\RenderTotals;
 use GiveDivi\Divi\Routes\RenderProfileEditor;
+use GiveDivi\Divi\Routes\RenderDonationHistory;
 
 /**
  * Class Modules
@@ -51,8 +53,8 @@ class Modules {
 			[
 				'module' => DonationReceiptModule::class,
 				'route'  => RenderDonationReceipt::class,
-      ],
-      [
+			],
+			[
 				'module' => RegistrationFormModule::class,
 				'route'  => RenderRegistrationForm::class,
 			],
@@ -67,10 +69,14 @@ class Modules {
       [
 				'module' => TotalsModule::class,
 				'route'  => RenderTotals::class,
-      ],
-      [
+			],
+			[
 				'module' => ProfileEditorModule::class,
 				'route'  => RenderProfileEditor::class,
+			],
+			[
+				'module' => DonationHistoryModule::class,
+				'route'  => RenderDonationHistory::class,
 			],
 		];
 	}
