@@ -49,8 +49,8 @@ class Modules {
 			[
 				'module' => DonationReceiptModule::class,
 				'route'  => RenderDonationReceipt::class,
-      ],
-      [
+			],
+			[
 				'module' => RegistrationFormModule::class,
 				'route'  => RenderRegistrationForm::class,
 			],
@@ -61,8 +61,8 @@ class Modules {
 			[
 				'module' => TotalsModule::class,
 				'route'  => RenderTotals::class,
-      ],
-      [
+			],
+			[
 				'module' => ProfileEditorModule::class,
 				'route'  => RenderProfileEditor::class,
 			],
