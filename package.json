@@ -14,7 +14,7 @@
         "lint:js": "eslint src/**/resources/**/*.js",
         "lint:js-fix": "eslint src/**/resources/**/*.js --fix",
         "lint:php": "./vendor/bin/phpcs -v -s --colors",
-        "lint:php:fix": "./vendor/bin/phpcbf -v --colors",
+        "lint:php:fix": "./vendor/bin/phpcbf src/* -v --colors",
         "lint:textdomain": "node ./wp-textdomain.js",
         "lint:scss": "stylelint src/**/resources/**/*.scss"
     },
@@ -56,6 +56,7 @@
         "wp-textdomain": "^1.0.1"
     },
     "dependencies": {
+        "@khanacademy/react-multi-select": "^0.3.3",
         "axios": "^0.21.1",
         "html-react-parser": "^1.1.2",
         "jquery": "^3.5.1",
