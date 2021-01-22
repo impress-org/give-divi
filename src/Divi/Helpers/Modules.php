@@ -72,7 +72,7 @@ class Modules {
 				'module' => ProfileEditorModule::class,
 				'route'  => RenderProfileEditor::class,
 			],
-      [
+			[
 				'module' => DonationHistoryModule::class,
 				'route'  => RenderDonationHistory::class,
 			],
@@ -80,7 +80,7 @@ class Modules {
 				'module' => SubscriptionsTableModule::class,
 				'route'  => RenderSubscriptionTable::class,
 				'active' => defined( 'GIVE_RECURRING_VERSION' ),
-      ],
+			],
 		];
 	}
 
