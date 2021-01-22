@@ -13,6 +13,7 @@ use GiveDivi\Divi\Modules\FormGrid\Module as FormGridModule;
 use GiveDivi\Divi\Modules\Totals\Module as TotalsModule;
 use GiveDivi\Divi\Modules\ProfileEditor\Module as ProfileEditorModule;
 use GiveDivi\Divi\Modules\DonationHistory\Module as DonationHistoryModule;
+use GiveDivi\Divi\Modules\SubscriptionsTable\Module as SubscriptionsTableModule;
 
 // Module routes Routes
 use GiveDivi\Divi\Routes\RenderDonationForm;
@@ -25,6 +26,7 @@ use GiveDivi\Divi\Routes\RenderFormGrid;
 use GiveDivi\Divi\Routes\RenderTotals;
 use GiveDivi\Divi\Routes\RenderProfileEditor;
 use GiveDivi\Divi\Routes\RenderDonationHistory;
+use GiveDivi\Divi\Routes\RenderSubscriptionTable;
 
 /**
  * Class Modules
@@ -74,11 +76,49 @@ class Modules {
 				'module' => ProfileEditorModule::class,
 				'route'  => RenderProfileEditor::class,
 			],
-			[
+      [
 				'module' => DonationHistoryModule::class,
 				'route'  => RenderDonationHistory::class,
 			],
+			[
+				'module' => SubscriptionsTableModule::class,
+				'route'  => RenderSubscriptionTable::class,
+				'active' => defined( 'GIVE_RECURRING_VERSION' ),
+      ],
 		];
+	}
+
+	/**
+	 * @param $key
+	 *
+	 * @return array|string[]
+	 */
+	private static function getDefinitionsByKey( $key ) {
+		// Check key
+		if ( ! in_array( $key, [ 'module', 'route' ], true ) ) {
+			throw new \InvalidArgumentException(
+				sprintf( 'Invalid key %s', $key )
+			);
+		}
+
+		// Get active modules
+		$modules = array_filter(
+			static::config(),
+			function( $module ) {
+				if ( isset( $module['active'] ) && ! $module['active'] ) {
+					return false;
+				}
+
+				return true;
+			}
+		);
+
+		return array_map(
+			function( $module ) use ( $key ) {
+				return $module[ $key ];
+			},
+			$modules
+		);
 	}
 
 	/**
@@ -87,12 +127,7 @@ class Modules {
 	 * @return array
 	 */
 	public static function getModules() {
-		return array_map(
-			function ( $module ) {
-				return $module['module'];
-			},
-			static::config()
-		);
+		return static::getDefinitionsByKey( 'module' );
 	}
 
 
@@ -102,11 +137,6 @@ class Modules {
 	 * @return array
 	 */
 	public static function getRoutes() {
-		return array_map(
-			function ( $module ) {
-				return $module['route'];
-			},
-			static::config()
-		);
+		return static::getDefinitionsByKey( 'route' );
 	}
 }
