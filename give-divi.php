@@ -4,8 +4,8 @@ use GiveDivi\Addon\Environment;
 use GiveDivi\Divi\AddonServiceProvider;
 
 /**
- * Plugin Name: Give - Divi
- * Plugin URI:  https://givewp.com/addons/give-divi/
+ * Plugin Name: GiveWP Donation Modules for Divi
+ * Plugin URI:  https://go.givewp.com/divi-addon
  * Description: Use GiveWP shortcodes as Divi modules
  * Version:     1.0.0
  * Author:      GiveWP
