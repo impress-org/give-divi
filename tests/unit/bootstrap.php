@@ -117,6 +117,7 @@ class Give_Unit_Tests_Bootstrap {
 
 		// Helpers
 		require_once $this->tests_dir . '/framework/helpers/shims.php';
+		require_once $this->tests_dir . '/framework/helpers/shortcode.php';
 	}
 
 	/**
