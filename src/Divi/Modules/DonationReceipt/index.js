@@ -63,7 +63,9 @@ export default class DonationReceipt extends React.Component {
 			error: this.props.error,
 		};
 
-		API.post( `/render-donation-receipt?donation_id=${ this.props.donation_id }`, params, { cancelToken: CancelToken.token } )
+		const delimiter = ( this.props.pretty_urls === 'on' ) ? '?' : '&';
+
+		API.post( `/render-donation-receipt${ delimiter }donation_id=${ this.props.donation_id }`, params, { cancelToken: CancelToken.token } )
 			.then( ( response ) => {
 				this.setState( {
 					fetching: false,

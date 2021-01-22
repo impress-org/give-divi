@@ -54,6 +54,15 @@ class Module extends \ET_Builder_Module {
 					'donor' => 'none', // always hidden
 				],
 			],
+			'pretty_urls'    => [
+				'label'           => 'Pretty URLs',
+				'type'            => 'text',
+				'option_category' => 'basic_option',
+				'default'         => ! empty( get_option( 'permalink_structure' ) ) ? 'on' : 'off',
+				'show_if'         => [
+					'donor' => 'none', // always hidden
+				],
+			],
 			'donor'          => [
 				'label'           => esc_html__( 'Display donor', 'give-divi' ),
 				'type'            => 'yes_no_button',
