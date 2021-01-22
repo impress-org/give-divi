@@ -34,10 +34,7 @@ class AddonServiceProvider implements ServiceProvider {
 		Hooks::addAction( 'admin_init', License::class, 'check' );
 		Hooks::addAction( 'admin_init', ActivationBanner::class, 'show', 20 );
 
-		// Load add-on assets only if Divi builder is active
-		if ( Environment::isDiviBuilderActive() ) {
-			Hooks::addAction( 'wp_enqueue_scripts', Assets::class, 'loadAssets' );
-		}
+		Hooks::addAction( 'wp_enqueue_scripts', Assets::class, 'loadAssets' );
 
 		// Rest routes
 		foreach ( Modules::getRoutes() as $moduleRoute ) {

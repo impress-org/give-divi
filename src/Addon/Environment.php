@@ -26,11 +26,6 @@ class Environment {
 		if ( ! static::giveMinRequiredVersionCheck() ) {
 			add_action( 'admin_notices', [ Notices::class, 'giveVersionError' ] );
 		}
-
-		// Check for Divi Builder
-		if ( ! static::isDiviBuilderActive() ) {
-			add_action( 'admin_notices', [ Notices::class, 'diviInactive' ] );
-		}
 	}
 
 	/**
@@ -51,15 +46,5 @@ class Environment {
 	 */
 	public static function isGiveActive() {
 		return defined( 'GIVE_VERSION' );
-	}
-
-	/**
-	 * Check if Divi Builder is in use.
-	 *
-	 * @since 1.0.0
-	 * @return bool
-	 */
-	public static function isDiviBuilderActive() {
-		return defined( 'ET_BUILDER_PLUGIN_VERSION' );
 	}
 }
