@@ -63,7 +63,11 @@ export default class DonationReceipt extends React.Component {
 			error: this.props.error,
 		};
 
-		API.post( `/render-donation-receipt?donation_id=${ this.props.donation_id }`, params, { cancelToken: CancelToken.token } )
+		const delimiter = ( this.props.pretty_urls === 'on' ) ? '?' : '&';
+
+		// The parameter donation_id is required by the give_display_donation_receipt function, the receipt won't load without it
+		// The dynamic delimiter is used to properly handle pretty URLs and plain URLs
+		API.post( `/render-donation-receipt${ delimiter }donation_id=${ this.props.donation_id }`, params, { cancelToken: CancelToken.token } )
 			.then( ( response ) => {
 				this.setState( {
 					fetching: false,

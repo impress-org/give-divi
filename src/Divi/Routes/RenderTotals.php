@@ -35,6 +35,7 @@ class RenderTotals extends Endpoint {
 						'ids'          => [
 							'type'     => 'string',
 							'required' => false,
+							'default'  => '',
 						],
 						'cats'         => [
 							'type'     => 'string',
