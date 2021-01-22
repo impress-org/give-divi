@@ -4,7 +4,7 @@ import MultiSelect from '@khanacademy/react-multi-select';
 
 import './style.css';
 
-class SimpleInput extends Component {
+class MultiSelectField extends Component {
 	static slug = 'give_multi_select';
 
 	options = Object.entries( this.props.fieldDefinition.options ).map( ( [ value, label ] ) => ( { label, value } ) );
@@ -39,4 +39,4 @@ class SimpleInput extends Component {
 	}
 }
 
-export default SimpleInput;
+export default MultiSelectField;
