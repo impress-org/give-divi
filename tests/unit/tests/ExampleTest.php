@@ -13,7 +13,7 @@ final class ExampleTest extends TestCase {
 	}
 
 	public function testGiveVersion() {
-		$this->assertEquals( GIVE_VERSION, '2.9.5' );
+		$this->assertEquals( GIVE_VERSION, '2.9.6' );
 	}
 
 }
