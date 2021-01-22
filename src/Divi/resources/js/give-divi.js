@@ -1,6 +1,7 @@
 // External Dependencies
 import $ from 'jquery';
 
+// Modules
 import DonationForm from '../../Modules/DonationForm';
 import DonorWall from '../../Modules/DonorWall';
 import FormGoal from '../../Modules/FormGoal';
@@ -13,6 +14,10 @@ import DonationHistory from '../../Modules/DonationHistory';
 import FormGird from '../../Modules/FormGrid';
 import SubscriptionsTable from '../../Modules/SubscriptionsTable';
 
+// Custom fields
+import SimpleInput from '../../CustomFields/MultiSelect';
+
 $( window ).on( 'et_builder_api_ready', ( event, API ) => {
 	API.registerModules( [ DonationForm, DonorWall, FormGoal, DonationReceipt, RegistrationForm, LoginForm, Totals, ProfileEditor, DonationHistory, FormGird, SubscriptionsTable ] );
+  API.registerModalFields( [ SimpleInput ] );
 } );

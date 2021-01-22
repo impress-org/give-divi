@@ -2,16 +2,32 @@
 
 namespace GiveDivi\Divi\Modules\Totals;
 
+use GiveDivi\Divi\Repositories\Forms;
+
 class Module extends \ET_Builder_Module {
 
-	public $slug       = 'give_totals';
-	public $vb_support = 'on';
+	public $slug;
+	public $vb_support;
 
-	protected $module_credits = [
-		'module_uri' => '',
-		'author'     => 'GiveWp',
-		'author_uri' => 'https://givewp.com',
-	];
+	protected $module_credits;
+
+	/**
+	 * @var Forms
+	 */
+	private $forms;
+
+	public function __construct( Forms $forms ) {
+		$this->forms          = $forms;
+		$this->slug           = 'give_totals';
+		$this->vb_support     = 'on';
+		$this->module_credits = [
+			'module_uri' => '',
+			'author'     => 'GiveWp',
+			'author_uri' => 'https://givewp.com',
+		];
+
+		parent::__construct();
+	}
 
 	public function init() {
 		$this->name = esc_html__( 'Give Totals', 'give-divi' );
@@ -32,9 +48,10 @@ class Module extends \ET_Builder_Module {
 			],
 			'ids'          => [
 				'label'           => esc_html__( 'Donation Form IDs', 'give-divi' ),
-				'type'            => 'text',
+				'type'            => 'give_multi_select',
 				'option_category' => 'basic_option',
 				'default'         => '',
+				'options'         => $this->forms->getAll(),
 			],
 			'cats'         => [
 				'label'           => esc_html__( 'Categories', 'give-divi' ),
