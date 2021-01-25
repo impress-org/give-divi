@@ -67,6 +67,10 @@ class Modules {
 				'route'  => RenderLoginForm::class,
 			],
 			[
+				'module' => FormGridModule::class,
+				'route'  => RenderFormGrid::class,
+			],
+			[
 				'module' => TotalsModule::class,
 				'route'  => RenderTotals::class,
 			],
