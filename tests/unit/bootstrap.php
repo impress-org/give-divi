@@ -117,14 +117,13 @@ class Give_Unit_Tests_Bootstrap {
 
 		// Helpers
 		require_once $this->tests_dir . '/framework/helpers/shims.php';
-		require_once $this->tests_dir . '/framework/helpers/shortcode.php';
 	}
 
 	/**
 	 * Get the single class instance.
 	 *
-	 * @since 1.3.2
 	 * @return Give_Unit_Tests_Bootstrap
+	 * @since 1.3.2
 	 */
 	public static function instance() {
 		if ( is_null( self::$instance ) ) {
