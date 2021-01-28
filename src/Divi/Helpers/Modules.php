@@ -14,6 +14,7 @@ use GiveDivi\Divi\Modules\Totals\Module as TotalsModule;
 use GiveDivi\Divi\Modules\ProfileEditor\Module as ProfileEditorModule;
 use GiveDivi\Divi\Modules\DonationHistory\Module as DonationHistoryModule;
 use GiveDivi\Divi\Modules\SubscriptionsTable\Module as SubscriptionsTableModule;
+use GiveDivi\Divi\Modules\MultiFormGoal\Module as MultiFormGoalModule;
 
 // Module routes Routes
 use GiveDivi\Divi\Routes\RenderDonationForm;
@@ -27,6 +28,7 @@ use GiveDivi\Divi\Routes\RenderTotals;
 use GiveDivi\Divi\Routes\RenderProfileEditor;
 use GiveDivi\Divi\Routes\RenderDonationHistory;
 use GiveDivi\Divi\Routes\RenderSubscriptionTable;
+use GiveDivi\Divi\Routes\RenderMultiFormGoal;
 
 /**
  * Class Modules
@@ -65,6 +67,10 @@ class Modules {
 				'route'  => RenderLoginForm::class,
 			],
 			[
+				'module' => FormGridModule::class,
+				'route'  => RenderFormGrid::class,
+			],
+			[
 				'module' => TotalsModule::class,
 				'route'  => RenderTotals::class,
 			],
@@ -80,6 +86,10 @@ class Modules {
 				'module' => SubscriptionsTableModule::class,
 				'route'  => RenderSubscriptionTable::class,
 				'active' => defined( 'GIVE_RECURRING_VERSION' ),
+			],
+			[
+				'module' => MultiFormGoalModule::class,
+				'route'  => RenderMultiFormGoal::class,
 			],
 		];
 	}
