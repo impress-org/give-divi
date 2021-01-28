@@ -3,10 +3,10 @@ Contributors: givewp, dlocc, webdevmattcrom, jason_the_adams
 Donate link: https://givewp.com/
 Tags: givewp, donation, divi, divi modules, fundraising
 Requires at least: 4.8
-Tested up to: 5.5
+Tested up to: 5.6
 Requires PHP: 5.6
-Stable tag: 1.0
-Requires Give: 2.8.0
+Stable tag: 1.0.0
+Requires Give: 2.9.6
 License: GPLv3
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
 
@@ -94,7 +94,7 @@ Automatic updates should work like a charm; as always though, ensure you backup 
 
 == Changelog ==
 
-### 1.0.0 January 28, 2020 ###
+### 1.0.0 January 28th, 2020 ###
 Initial Release!!
 
 * Launched supporting all GiveWP Core shortcodes
