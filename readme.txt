@@ -3,7 +3,7 @@ Contributors: givewp, dlocc, webdevmattcrom, jason_the_adams
 Donate link: https://givewp.com/
 Tags: givewp, donation, divi, divi modules, fundraising
 Requires at least: 4.8
-Tested up to: 5.6
+Tested up to: 5.7
 Requires PHP: 5.6
 Stable tag: 1.0.0
 Requires Give: 2.9.6

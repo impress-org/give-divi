@@ -1,8 +1,4 @@
-<?php namespace GiveDivi;
-
-use GiveDivi\Addon\Environment;
-use GiveDivi\Divi\AddonServiceProvider;
-
+<?php
 /**
  * Plugin Name: Give - Donation Modules for Divi
  * Plugin URI:  https://go.givewp.com/divi-addon
@@ -13,6 +9,11 @@ use GiveDivi\Divi\AddonServiceProvider;
  * Text Domain: give-divi
  * Domain Path: /languages
  */
+namespace GiveDivi;
+
+use GiveDivi\Addon\Environment;
+use GiveDivi\Divi\AddonServiceProvider;
+
 defined( 'ABSPATH' ) or exit;
 
 // Add-on name
