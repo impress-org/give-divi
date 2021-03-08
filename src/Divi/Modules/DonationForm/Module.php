@@ -58,9 +58,9 @@ class Module extends \ET_Builder_Module {
 		return [
 			'id'    => [
 				'label'           => esc_html__( 'Select Donation form', 'give-divi' ),
-				'type'            => 'select',
+				'type'            => 'give_multi_select',
 				'option_category' => 'basic_option',
-				'options'         => [ esc_html__( 'Select form', 'give-divi' ) ] + $donationForms,
+				'options'         => $donationForms,
 			],
 			'style' => [
 				'label'           => esc_html__( 'Donation form format', 'give-divi' ),
