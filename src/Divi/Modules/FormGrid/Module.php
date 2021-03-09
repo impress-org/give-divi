@@ -164,7 +164,7 @@ class Module extends \ET_Builder_Module {
 					'max'  => '55',
 					'step' => '1',
 				],
-				'validate_unit'   => true,
+				'validate_unit'   => false,
 				'default'         => '16',
 				'description'     => esc_html__( 'You can truncate the exact word-length of the excerpt displayed with this argument.', 'give-divi' ),
 			],
