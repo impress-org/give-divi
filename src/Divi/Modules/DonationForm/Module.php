@@ -61,6 +61,7 @@ class Module extends \ET_Builder_Module {
 				'type'            => 'give_multi_select',
 				'option_category' => 'basic_option',
 				'options'         => $donationForms,
+				'singleOption'    => true,
 			],
 			'style' => [
 				'label'           => esc_html__( 'Donation form format', 'give-divi' ),
