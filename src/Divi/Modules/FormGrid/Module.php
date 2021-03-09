@@ -241,7 +241,7 @@ class Module extends \ET_Builder_Module {
 			'show_title'          => isset( $attrs['show_title'] ) ? filter_var( $attrs['show_title'], FILTER_VALIDATE_BOOLEAN ) : true,
 			'show_goal'           => isset( $attrs['show_goal'] ) ? filter_var( $attrs['show_goal'], FILTER_VALIDATE_BOOLEAN ) : true,
 			'show_excerpt'        => isset( $attrs['show_excerpt'] ) ? filter_var( $attrs['show_excerpt'], FILTER_VALIDATE_BOOLEAN ) : true,
-			'show_featured_image' => isset( $attrs['show_featured_image'] ) ? filter_var( $attrs['show_featured_image'], FILTER_VALIDATE_BOOLEAN ) : false,
+			'show_featured_image' => isset( $attrs['show_featured_image'] ) ? filter_var( $attrs['show_featured_image'], FILTER_VALIDATE_BOOLEAN ) : true,
 			'image_size'          => isset( $attrs['image_size'] ) ? $attrs['image_size'] : 'medium',
 			'image_height'        => isset( $attrs['image_height'] ) ? $attrs['image_height'] : 'auto',
 			'excerpt_length'      => isset( $attrs['excerpt_length'] ) ? (int) $attrs['excerpt_length'] : 160,
