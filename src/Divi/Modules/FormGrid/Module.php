@@ -2,16 +2,36 @@
 
 namespace GiveDivi\Divi\Modules\FormGrid;
 
+use GiveDivi\Divi\Repositories\Forms;
+
 class Module extends \ET_Builder_Module {
 
-	public $slug       = 'give_form_grid';
-	public $vb_support = 'on';
+	public $slug;
+	public $vb_support;
 
 	protected $module_credits = [
 		'module_uri' => '',
 		'author'     => 'GiveWp',
 		'author_uri' => 'https://givewp.com',
 	];
+
+	/**
+	 * @var Forms
+	 */
+	private $forms;
+
+	/**
+	 * Module constructor.
+	 *
+	 * @param  Forms  $forms
+	 */
+	public function __construct( Forms $forms ) {
+		$this->forms      = $forms;
+		$this->slug       = 'give_form_grid';
+		$this->vb_support = 'on';
+
+		parent::__construct();
+	}
 
 	public function init() {
 		$this->name = esc_html__( 'Give Form Grid', 'give-divi' );
@@ -23,6 +43,8 @@ class Module extends \ET_Builder_Module {
 	 * @return array[]
 	 */
 	public function get_fields() {
+		$donationForms = $this->forms->getAll();
+
 		return [
 			'forms_per_page'      => [
 				'label'           => esc_html__( 'Forms per page', 'give-divi' ),
@@ -33,22 +55,25 @@ class Module extends \ET_Builder_Module {
 					'max'  => '100',
 					'step' => '1',
 				],
+				'validate_unit'   => false,
 				'default'         => '12',
 				'description'     => esc_html__( 'Shows how many forms will display per page. Pagination controls will be visible if more forms exist', 'give-divi' ),
 			],
 			'ids'                 => [
-				'label'           => esc_html__( 'Form IDs', 'give-divi' ),
-				'type'            => 'text',
+				'label'           => esc_html__( 'Forms', 'give-divi' ),
+				'type'            => 'give_multi_select',
 				'option_category' => 'basic_option',
+				'options'         => $donationForms,
 				'default'         => '',
-				'description'     => esc_html__( 'Show forms based on ID. By default, all forms appear on the grid. A comma-separated list of form IDs will cause the grid to include only those forms, default “All Forms”', 'give-divi' ),
+				'description'     => esc_html__( 'Show only selected forms. By default, all forms appear on the grid. A list of form will cause the grid to include only those forms, default “All Forms”', 'give-divi' ),
 			],
 			'exclude'             => [
-				'label'           => esc_html__( 'Exclude Forms by ID', 'give-divi' ),
-				'type'            => 'text',
+				'label'           => esc_html__( 'Exclude Forms', 'give-divi' ),
+				'type'            => 'give_multi_select',
 				'option_category' => 'basic_option',
+				'options'         => $donationForms,
 				'default'         => '',
-				'description'     => esc_html__( 'Exclude one or more forms from the grid. A comma-separated list of form IDs will cause the grid to exclude only those forms.', 'give-divi' ),
+				'description'     => esc_html__( 'Exclude one or more forms from the grid. A list of forms will cause the grid to exclude only those forms.', 'give-divi' ),
 			],
 			'orderby'             => [
 				'label'           => esc_html__( 'Order by', 'give-divi' ),
