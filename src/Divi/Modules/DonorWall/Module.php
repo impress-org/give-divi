@@ -33,7 +33,7 @@ class Module extends \ET_Builder_Module {
 					'max'  => '100',
 					'step' => '1',
 				],
-				'validate_unit'   => true,
+				'validate_unit'   => false,
 				'default'         => '12',
 			],
 			'ids'           => [
@@ -89,7 +89,7 @@ class Module extends \ET_Builder_Module {
 					'max'  => '120',
 					'step' => '1',
 				],
-				'validate_unit'   => true,
+				'validate_unit'   => false,
 				'default'         => '60',
 			],
 			'avatar'        => [
@@ -157,7 +157,7 @@ class Module extends \ET_Builder_Module {
 					'max'  => '1000',
 					'step' => '1',
 				],
-				'validate_unit'   => true,
+				'validate_unit'   => false,
 				'default'         => '140',
 			],
 			'readtext'      => [

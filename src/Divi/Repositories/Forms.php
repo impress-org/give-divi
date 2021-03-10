@@ -17,8 +17,8 @@ class Forms {
 
 		$forms_query = new \Give_Forms_Query(
 			[
-				'number'      => - 1,
-				'post_status' => 'publish',
+				'posts_per_page' => -1,
+				'post_status'    => 'publish',
 			]
 		);
 

@@ -58,9 +58,10 @@ class Module extends \ET_Builder_Module {
 		return [
 			'id'    => [
 				'label'           => esc_html__( 'Select Donation form', 'give-divi' ),
-				'type'            => 'select',
+				'type'            => 'give_multi_select',
 				'option_category' => 'basic_option',
-				'options'         => [ esc_html__( 'Select form', 'give-divi' ) ] + $donationForms,
+				'options'         => $donationForms,
+				'singleOption'    => true,
 			],
 			'style' => [
 				'label'           => esc_html__( 'Donation form format', 'give-divi' ),
@@ -106,7 +107,7 @@ class Module extends \ET_Builder_Module {
 	 * @since 1.0.0
 	 */
 	public function render( $attrs, $content = null, $render_slug ) {
-		if ( ! boolval( $attrs['id'] ) ) {
+		if ( ! isset( $attrs['id'] ) || ! boolval( $attrs['id'] ) ) {
 			return;
 		}
 
