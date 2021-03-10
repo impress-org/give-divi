@@ -107,7 +107,7 @@ class Module extends \ET_Builder_Module {
 	 * @since 1.0.0
 	 */
 	public function render( $attrs, $content = null, $render_slug ) {
-		if ( ! boolval( $attrs['id'] ) ) {
+		if ( ! isset( $attrs['id'] ) || ! boolval( $attrs['id'] ) ) {
 			return;
 		}
 
