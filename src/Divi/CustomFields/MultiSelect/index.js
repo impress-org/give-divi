@@ -27,7 +27,26 @@ class MultiSelectField extends Component {
 		this.props._onChange( this.props.name, filteredOptions );
 	}
 
+	_handleClick = ( selected ) => {
+		this.props._onChange( this.props.name, selected );
+		this.setState( { selected: [ selected ] } );
+	}
+
 	render() {
+		// Single option
+		if ( this.props.fieldDefinition.singleOption ) {
+			return (
+				<MultiSelect
+					options={ this.options }
+					selected={ this.state.selected }
+					onSelectedChanged={ this._onChange }
+					value={ this.props.value }
+					hasSelectAll={ false }
+					ItemRenderer={ ( data ) => <span onClick={ () => this._handleClick( data.option.value ) }>{ data.option.label }</span> }
+				/>
+			);
+		}
+
 		return (
 			<MultiSelect
 				options={ this.options }
