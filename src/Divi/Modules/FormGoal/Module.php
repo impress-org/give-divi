@@ -36,7 +36,7 @@ class Module extends \ET_Builder_Module {
 		$this->vb_support     = 'on';
 		$this->module_credits = [
 			'module_uri' => '',
-			'author'     => 'GiveWp',
+			'author'     => 'GiveWP',
 			'author_uri' => 'https://givewp.com',
 		];
 
