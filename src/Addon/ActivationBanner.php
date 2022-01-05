@@ -27,8 +27,7 @@ class ActivationBanner {
 			'file'              => GIVE_DIVI_ADDON_FILE,
 			'name'              => GIVE_DIVI_ADDON_NAME,
 			'version'           => GIVE_DIVI_ADDON_VERSION,
-//			'settings_url'      => admin_url( 'edit.php?post_type=give_forms&page=give-settings&tab=give-divi' ),
-			'documentation_url' => 'http://docs.givewp.com/divi-addon',
+			'documentation_url' => 'https://docs.givewp.com/divi-addon',
 			'support_url'       => 'https://givewp.com/support/',
 			'testing'           => false, // Never leave true.
 		];

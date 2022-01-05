@@ -3,18 +3,18 @@ Contributors: givewp, dlocc, webdevmattcrom, jason_the_adams
 Donate link: https://givewp.com/
 Tags: givewp, donation, divi, divi modules, fundraising
 Requires at least: 4.8
-Tested up to: 5.7
+Tested up to: 5.9
 Requires PHP: 5.6
 Stable tag: 1.0.1
 Requires Give: 2.9.6
 License: GPLv3
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
 
-A GiveWP add-on which allows you to embed any GiveWP shortcode into your Divi-powered pages.
+A GiveWP add-on which allows you to embed any GiveWP shortcode into your Divi-powered pages using native modules.
 
 == Description ==
 
-GiveWP Donation Widgets for Divi is the easiest way to embed any of the GiveWP shortcodes or blocks into your Divi-powered pages.
+GiveWP Donation Modules for Divi is the easiest way to embed any of the GiveWP shortcodes or blocks into your Divi-powered pages.
 
 No more fidgeting with shortcode args or comparing docs. Just use the Donation Divi modules and configure them with Divi's powerful live builder and hit PUBLISH.
 
@@ -34,7 +34,7 @@ No more fidgeting with shortcode args or comparing docs. Just use the Donation D
 
 **BASIC USAGE**
 
-Once the add-on is enabled, you'll have a new modules available in your Divi builder that all start with "GiveWP". There you'll find all of the available modules. Simply drop any of them onto your page and the options will be displayed for you to configure. 
+Once the add-on is enabled, you'll have a new modules available in your Divi builder that all start with "GiveWP". There you'll find all the available modules. Simply drop any of them onto your page and the options will be displayed for you to configure. 
 
 **ABOUT OUR FREE ADD-ONS**
 Add-ons like "GiveWP Donation Modules for Divi" are a way that we are giving back to the WordPress community. Check out our [announcement about this add-on](https://go.givewp.com/wporg-divi) to learn more about all the great and free add-ons we're creating.
@@ -93,6 +93,10 @@ Automatic updates should work like a charm; as always though, ensure you backup 
 3. All shortcodes render on the screen with a live preview for your editing purposes
 
 == Changelog ==
+
+### 1.0.2 TBD ###
+* Tweak: Correct spelling of "GiveWp" to "GiveWP" throughout the plugin.
+* Fix: Remove "Settings" link from plugins list screen because this plugin does not have any settings.
 
 ### 1.0.1 March 30th, 2021 ###
 * Fix: Corrected an issue where module settings weren't saving
