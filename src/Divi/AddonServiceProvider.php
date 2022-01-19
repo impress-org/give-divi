@@ -42,7 +42,7 @@ class AddonServiceProvider implements ServiceProvider {
 
 		// Load GiveWP Divi modules
 		add_action(
-			'et_pagebuilder_module_init',
+			'et_builder_ready',
 			function () {
 				foreach ( Modules::getModules() as $module ) {
 					give( $module );
