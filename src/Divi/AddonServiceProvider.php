@@ -4,10 +4,9 @@ namespace GiveDivi\Divi;
 
 use Give\Helpers\Hooks;
 use Give\ServiceProviders\ServiceProvider;
-use GiveDivi\Addon\Environment;
-use GiveDivi\Addon\License;
-use GiveDivi\Addon\Language;
 use GiveDivi\Addon\ActivationBanner;
+use GiveDivi\Addon\Language;
+use GiveDivi\Addon\License;
 use GiveDivi\Divi\Helpers\Assets;
 use GiveDivi\Divi\Helpers\Modules;
 
@@ -43,7 +42,7 @@ class AddonServiceProvider implements ServiceProvider {
 
 		// Load GiveWP Divi modules
 		add_action(
-			'et_pagebuilder_module_init',
+			'et_builder_ready',
 			function () {
 				foreach ( Modules::getModules() as $module ) {
 					give( $module );
