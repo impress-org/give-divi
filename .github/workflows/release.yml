@@ -8,7 +8,7 @@ jobs:
     build:
         uses: impress-org/givewp-github-actions/.github/workflows/wp-org-release.yml@master
         with:
-            plugin_slug: give-donation-modules-for-divi
+            wp_org_slug: give-donation-modules-for-divi
             zip_name: give-divi
         secrets:
             SVN_USERNAME: ${{ secrets.SVN_USERNAME }}
