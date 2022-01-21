@@ -16,38 +16,41 @@ use GiveDivi\Divi\Helpers\Modules;
  * @package     GiveDivi\Addon
  * @copyright   Copyright (c) 2020, GiveWP
  */
-class AddonServiceProvider implements ServiceProvider {
-	/**
-	 * @inheritDoc
-	 */
-	public function register() {
-	}
+class AddonServiceProvider implements ServiceProvider
+{
+    /**
+     * @inheritDoc
+     */
+    public function register()
+    {
+    }
 
-	/**
-	 * @inheritDoc
-	 */
-	public function boot() {
-		// Load add-on translations.
-		Hooks::addAction( 'init', Language::class, 'load' );
+    /**
+     * @inheritDoc
+     */
+    public function boot()
+    {
+        // Load add-on translations.
+        Hooks::addAction('init', Language::class, 'load');
 
-		Hooks::addAction( 'admin_init', License::class, 'check' );
-		Hooks::addAction( 'admin_init', ActivationBanner::class, 'show', 20 );
+        Hooks::addAction('admin_init', License::class, 'check');
+        Hooks::addAction('admin_init', ActivationBanner::class, 'show', 20);
 
-		Hooks::addAction( 'wp_enqueue_scripts', Assets::class, 'loadAssets' );
+        Hooks::addAction('wp_enqueue_scripts', Assets::class, 'loadAssets');
 
-		// Rest routes
-		foreach ( Modules::getRoutes() as $moduleRoute ) {
-			Hooks::addAction( 'rest_api_init', $moduleRoute, 'registerRoute' );
-		}
+        // Rest routes
+        foreach (Modules::getRoutes() as $moduleRoute) {
+            Hooks::addAction('rest_api_init', $moduleRoute, 'registerRoute');
+        }
 
-		// Load GiveWP Divi modules
-		add_action(
-			'et_builder_ready',
-			function () {
-				foreach ( Modules::getModules() as $module ) {
-					give( $module );
-				}
-			}
-		);
-	}
+        // Load GiveWP Divi modules
+        add_action(
+            'et_builder_ready',
+            function () {
+                foreach (Modules::getModules() as $module) {
+                    give($module);
+                }
+            }
+        );
+    }
 }
