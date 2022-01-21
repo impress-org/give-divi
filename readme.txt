@@ -2,10 +2,10 @@
 Contributors: givewp, dlocc, webdevmattcrom, jason_the_adams
 Donate link: https://givewp.com/
 Tags: givewp, donation, divi, divi modules, fundraising
-Requires at least: 4.8
-Tested up to: 5.7
+Requires at least: 4.9
+Tested up to: 5.9
 Requires PHP: 5.6
-Stable tag: 1.0.1
+Stable tag: 1.0.2
 Requires Give: 2.9.6
 License: GPLv3
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
@@ -93,6 +93,9 @@ Automatic updates should work like a charm; as always though, ensure you backup 
 3. All shortcodes render on the screen with a live preview for your editing purposes
 
 == Changelog ==
+
+### 1.0.2 January 20th, 2022 ###
+* Fix: Restored compatibility with the latest version of Divi, 4.14.0
 
 ### 1.0.1 March 30th, 2021 ###
 * Fix: Corrected an issue where module settings weren't saving

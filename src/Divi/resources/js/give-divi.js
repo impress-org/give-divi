@@ -18,7 +18,20 @@ import MultiFormGoal from '../../Modules/MultiFormGoal';
 // Custom fields
 import SimpleInput from '../../CustomFields/MultiSelect';
 
-$( window ).on( 'et_builder_api_ready', ( event, API ) => {
-	API.registerModules( [ DonationForm, DonorWall, FormGoal, DonationReceipt, RegistrationForm, LoginForm, Totals, ProfileEditor, DonationHistory, FormGird, SubscriptionsTable, MultiFormGoal ] );
-	API.registerModalFields( [ SimpleInput ] );
-} );
+$(window).on('et_builder_api_ready', (event, API) => {
+    API.registerModules([
+        DonationForm,
+        DonorWall,
+        FormGoal,
+        DonationReceipt,
+        RegistrationForm,
+        LoginForm,
+        Totals,
+        ProfileEditor,
+        DonationHistory,
+        FormGird,
+        SubscriptionsTable,
+        MultiFormGoal,
+    ]);
+    API.registerModalFields([SimpleInput]);
+});
