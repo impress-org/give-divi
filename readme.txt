@@ -5,7 +5,7 @@ Tags: givewp, donation, divi, divi modules, fundraising
 Requires at least: 4.9
 Tested up to: 5.9
 Requires PHP: 5.6
-Stable tag: 1.0.2
+Stable tag: 1.0.3
 Requires Give: 2.9.6
 License: GPLv3
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
@@ -94,7 +94,7 @@ Automatic updates should work like a charm; as always though, ensure you back up
 
 == Changelog ==
 
-### 1.0.3 TBD ###
+### 1.0.3 March 3rd, 2022 ###
 * Tweak: Correct spelling of "GiveWp" to "GiveWP" throughout the plugin.
 * Fix: Remove "Settings" link from plugins list screen because this plugin does not have any settings.
 * Fix: Resolve a number of typos in the plugin readme.txt file.
