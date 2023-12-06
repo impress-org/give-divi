@@ -2,17 +2,23 @@
 import React from 'react';
 import API, {CancelToken} from '../../resources/js/api';
 import parse from 'html-react-parser';
+import Iframe from './Components/Iframe';
+import ModalForm from "./Components/ModalForm";
 
 export default class DonationForm extends React.Component {
     static slug = 'give_donation_form';
 
+    initialState = {
+        fetching: false,
+        content: null,
+        isV3Form: null,
+        dataSrc: null,
+    };
+
     constructor(props) {
         super(props);
 
-        this.state = {
-            fetching: false,
-            content: null,
-        };
+        this.state = this.initialState;
     }
 
     getSnapshotBeforeUpdate(prevProps) {
@@ -56,22 +62,37 @@ export default class DonationForm extends React.Component {
         });
 
         API.post('/render-donation-form', params, {cancelToken: CancelToken.token})
-            .then((response) => {
-                this.setState({
-                    fetching: false,
-                    content: response.data.content,
-                });
-            })
-            .catch(() => {
-                CancelToken.cancel();
-                this.setState({
-                    fetching: false,
-                    content: '',
-                });
-            });
+           .then((response) => {
+               this.setState({
+                   fetching: false,
+                   content: response.data.content,
+                   isV3Form: response.data.isV3Form,
+                   dataSrc: response.data?.dataSrc,
+               });
+           })
+           .catch(() => {
+               CancelToken.cancel();
+               this.setState(this.initialState);
+           });
     }
 
     render() {
+        if (this.state.isV3Form) {
+            if (this.props.style === 'button') {
+                return (
+                    <a className="givewp-donation-form-link" href={formUrl} target="_blank" rel="noopener noreferrer">
+                        {'Donate'}
+                    </a>
+                );
+            }
+
+            if (['modal', 'reveal'].includes(this.props.style)) {
+                return <ModalForm openFormButton={'Donate'} dataSrc={this.state.dataSrc} />;
+            }
+
+            return <Iframe dataSrc={this.state.dataSrc} />;
+        }
+
         return <>{this.state.content && parse(this.state.content)}</>;
     }
 }
