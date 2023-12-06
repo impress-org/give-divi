@@ -58,10 +58,13 @@ class Module extends ET_Builder_Module
     public function get_fields()
     {
         $donationForms = $this->forms->getAll();
+
         $donationFormsKeys = array_map(
             'strval',
             array_keys($donationForms)
         ); // Divi builder module requires array values to be a string
+
+        $v3formsKeys = array_map('strval',$this->forms->getV3Forms($donationFormsKeys));
 
         return [
             'id' => [
@@ -89,6 +92,10 @@ class Module extends ET_Builder_Module
                 'default' => 'on',
                 'show_if' => [
                     'id' => $donationFormsKeys,
+                    'style' => 'onpage',
+                ],
+                'show_if_not' => [
+                    'id' => $v3formsKeys,
                 ],
             ],
             'goal' => [
@@ -99,6 +106,19 @@ class Module extends ET_Builder_Module
                 'default' => 'on',
                 'show_if' => [
                     'id' => $donationFormsKeys,
+                    'style' => 'onpage',
+                ],
+                'show_if_not' => [
+                    'id' => $v3formsKeys,
+                ],
+            ],
+            'continue_button_title' => [
+                'label' => esc_html__('Button label', 'give-divi'),
+                'type' => 'text',
+                'option_category' => 'basic_option',
+                'default' =>  esc_html__('Donate', 'give-divi'),
+                'show_if_not' => [
+                    'style' => 'onpage',
                 ],
             ],
         ];
