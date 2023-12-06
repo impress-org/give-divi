@@ -37,6 +37,28 @@ class Forms
     }
 
     /**
+     * @unreleased
+     *
+     * @param array $forms
+     *
+     * @return array
+     */
+    public function getV3Forms($forms)
+    {
+        $output = [];
+
+        foreach ($forms as $id) {
+            $isV3Form = (bool)give()->form_meta->get_meta($id, 'formBuilderSettings', true);
+
+            if ($isV3Form) {
+                $output[] = $id;
+            }
+        }
+
+        return $output;
+    }
+
+    /**
      * Get Donation form formats
      *
      * @since 1.0.0
