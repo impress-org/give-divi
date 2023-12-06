@@ -2,6 +2,7 @@
 
 namespace GiveDivi\Divi\Routes;
 
+use Give\DonationForms\Actions\GenerateDonationFormViewRouteUrl;
 use WP_REST_Request;
 use WP_REST_Response;
 
@@ -108,6 +109,19 @@ class RenderDonationForm extends Endpoint
             'rest' => true,
             // used as a flag to determine if reveal iframe script should be loaded
         ];
+
+        $isV3Form = (bool)give()->form_meta->get_meta($request->get_param('id'), 'formBuilderSettings', true);
+
+        if ($isV3Form) {
+            return new WP_REST_Response(
+                [
+                    'status' => true,
+                    'isV3Form' => true,
+                    'dataSrc' => (new GenerateDonationFormViewRouteUrl())($request->get_param('id')),
+                    'content' => give_form_shortcode($attributes),
+                ]
+            );
+        }
 
         return new WP_REST_Response(
             [
