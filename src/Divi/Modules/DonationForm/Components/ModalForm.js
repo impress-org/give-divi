@@ -13,16 +13,16 @@ export default class ModalForm extends React.Component {
             isOpen: false
         }
     }
-    toggleModal = () => {
+    toggleModal() {
         this.setState({
             isOpen: !this.state.isOpen
         });
     };
     render() {
         return (
-            <div className={'givewp-donation-form-modal'}>
-                <button className={'givewp-donation-form-modal__open'} onClick={this.toggleModal}>
-                    Donate
+            <div className="givewp-donation-form-modal">
+                <button className="givewp-donation-form-modal__open" onClick={this.toggleModal}>
+                    {this.props.openFormButton}
                 </button>
                 {this.state.isOpen &&
                     createPortal(
