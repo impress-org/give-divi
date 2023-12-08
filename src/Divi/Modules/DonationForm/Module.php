@@ -142,11 +142,16 @@ class Module extends ET_Builder_Module
             return;
         }
 
+        if (isset($attrs['style']) && $attrs['style'] === 'button') {
+            $attrs['style'] = 'newTab';
+        }
+
         $atts = [
             'id' => $attrs['id'],
-            'display_style' => isset($attrs['style']) ? $attrs['style'] : 'onpage',
+            'display_style' => $attrs['style'] ?? 'onpage',
             'show_title' => isset($attrs['title']) ? filter_var($attrs['title'], FILTER_VALIDATE_BOOLEAN) : true,
             'show_goal' => isset($attrs['goal']) ? filter_var($attrs['goal'], FILTER_VALIDATE_BOOLEAN) : true,
+            'continue_button_title' => $attrs['continue_button_title'] ?? 'Donate',
         ];
 
         return give_form_shortcode($atts);
