@@ -2,6 +2,7 @@
 
 namespace GiveDivi\Divi\Routes;
 
+use Give\DonationForms\Actions\GenerateDonationFormPreviewRouteUrl;
 use Give\DonationForms\Actions\GenerateDonationFormViewRouteUrl;
 use WP_REST_Request;
 use WP_REST_Response;
@@ -101,6 +102,7 @@ class RenderDonationForm extends Endpoint
             'display_style' => $request->get_param('style'),
             'show_title' => $request->get_param('title'),
             'show_goal' => $request->get_param('goal'),
+            'continue_button_title' => $request->get_param('continue_button_title'),
         ];
 
         $_SERVER['QUERY_STRING'] = [
@@ -118,6 +120,7 @@ class RenderDonationForm extends Endpoint
                     'status' => true,
                     'isV3Form' => true,
                     'dataSrc' => (new GenerateDonationFormViewRouteUrl())($request->get_param('id')),
+                    'viewUrl' => (new GenerateDonationFormPreviewRouteUrl())($request->get_param('id')),
                     'content' => give_form_shortcode($attributes),
                 ]
             );
