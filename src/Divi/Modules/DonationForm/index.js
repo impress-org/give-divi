@@ -3,7 +3,7 @@ import React from 'react';
 import API, {CancelToken} from '../../resources/js/api';
 import parse from 'html-react-parser';
 import Iframe from './Components/Iframe';
-import ModalForm from "./Components/ModalForm";
+import ModalForm from './Components/ModalForm';
 
 import './styles.scss';
 
@@ -64,7 +64,7 @@ export default class DonationForm extends React.Component {
 
     fetchDonationForm(params) {
         this.setState({
-            fetching: true,
+            fetching: true
         });
 
         API.post('/render-donation-form', params, {cancelToken: CancelToken.token})
@@ -72,7 +72,7 @@ export default class DonationForm extends React.Component {
                this.setState({
                    fetching: false,
                    content: response.data.content,
-                   isV3Form: response.data.isV3Form,
+                   isV3Form: response.data?.isV3Form,
                    dataSrc: response.data?.dataSrc,
                    viewUrl: response.data?.viewUrl
                });
