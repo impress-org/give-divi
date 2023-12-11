@@ -28,7 +28,7 @@ jobs:
         uses: impress-org/givewp-github-actions/.github/workflows/generate-zip.yml@master
         with:
             ref: ${{ github.event.inputs.ref }}
-            plugin_slug: give
+            plugin_slug: give-divi
             production: ${{ github.event.inputs.production }}
             slack_channel: ${{ github.event.inputs.slack_channel }}
             slack_thread: ${{ github.event.inputs.slack_thread }}
