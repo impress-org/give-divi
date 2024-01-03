@@ -64,8 +64,6 @@ class Module extends ET_Builder_Module
             array_keys($donationForms)
         ); // Divi builder module requires array values to be a string
 
-        $v3formsKeys = array_map('strval',$this->forms->getV3Forms($donationFormsKeys));
-
         return [
             'id' => [
                 'label' => esc_html__('Select Donation form', 'give-divi'),
@@ -93,10 +91,7 @@ class Module extends ET_Builder_Module
                 'show_if' => [
                     'id' => $donationFormsKeys,
                     'style' => 'onpage',
-                ],
-                'show_if_not' => [
-                    'id' => $v3formsKeys,
-                ],
+                ]
             ],
             'goal' => [
                 'label' => esc_html__('Display Donation goal', 'give-divi'),
@@ -107,10 +102,7 @@ class Module extends ET_Builder_Module
                 'show_if' => [
                     'id' => $donationFormsKeys,
                     'style' => 'onpage',
-                ],
-                'show_if_not' => [
-                    'id' => $v3formsKeys,
-                ],
+                ]
             ],
             'continue_button_title' => [
                 'label' => esc_html__('Button label', 'give-divi'),
@@ -146,15 +138,22 @@ class Module extends ET_Builder_Module
             $attrs['style'] = 'newTab';
         }
 
-        $atts = [
-            'id' => $attrs['id'],
-            'display_style' => $attrs['style'] ?? 'onpage',
-            'show_title' => isset($attrs['title']) ? filter_var($attrs['title'], FILTER_VALIDATE_BOOLEAN) : true,
-            'show_goal' => isset($attrs['goal']) ? filter_var($attrs['goal'], FILTER_VALIDATE_BOOLEAN) : true,
-            'continue_button_title' => $attrs['continue_button_title'] ?? 'Donate',
-        ];
+        $style = $attrs['style'] ?? 'onpage';
+        $title = isset($attrs['title'])
+            ? filter_var($attrs['title'], FILTER_VALIDATE_BOOLEAN)
+            : true;
+        $goal = isset($attrs['goal'])
+            ? filter_var($attrs['goal'], FILTER_VALIDATE_BOOLEAN)
+            : true;
+        $buttonLabel = $attrs['continue_button_title'] ?? 'Donate';
 
-        return give_form_shortcode($atts);
+        return give_form_shortcode([
+            'id' => $attrs['id'],
+            'display_style' => $style,
+            'show_title' => $title,
+            'show_goal' => $goal,
+            'continue_button_title' => $buttonLabel,
+        ]);
     }
 
 }
