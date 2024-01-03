@@ -4,6 +4,7 @@ namespace GiveDivi\Divi\Routes;
 
 use Give\DonationForms\Actions\GenerateDonationFormPreviewRouteUrl;
 use Give\DonationForms\Actions\GenerateDonationFormViewRouteUrl;
+use Give\DonationForms\Models\DonationForm;
 use WP_REST_Request;
 use WP_REST_Response;
 
@@ -115,6 +116,12 @@ class RenderDonationForm extends Endpoint
         $isV3Form = (bool)give()->form_meta->get_meta($request->get_param('id'), 'formBuilderSettings', true);
 
         if ($isV3Form) {
+            if ($donationForm = DonationForm::find($attributes['id'])) {
+                $donationForm->settings->showHeading        = boolval($attributes['show_title']);
+                $donationForm->settings->enableDonationGoal = boolval($attributes['show_goal']);
+                $donationForm->save();
+            }
+
             return new WP_REST_Response(
                 [
                     'status' => true,
