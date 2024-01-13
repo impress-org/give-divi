@@ -121,14 +121,14 @@ class Module extends ET_Builder_Module
      *
      * @since 1.0.0
      *
-     * @param null $content
+     * @param string|null $content
      * @param string $render_slug
      *
      * @param array $attrs
      *
      * @return string|void
      */
-    public function render($attrs, $content = null, $render_slug)
+    public function render($attrs, $content, $render_slug)
     {
         if ( ! isset($attrs['id']) || ! boolval($attrs['id'])) {
             return;
