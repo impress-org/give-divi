@@ -3,6 +3,7 @@
 namespace GiveDivi\Divi\Repositories;
 
 use Give_Forms_Query;
+use Give\Helpers\Form\Utils;
 
 /**
  * Class Forms
@@ -48,9 +49,7 @@ class Forms
         $output = [];
 
         foreach ($forms as $id) {
-            $isV3Form = (bool)give()->form_meta->get_meta($id, 'formBuilderSettings', true);
-
-            if ($isV3Form) {
+            if (Utils::isV3Form($id)) {
                 $output[] = $id;
             }
         }
