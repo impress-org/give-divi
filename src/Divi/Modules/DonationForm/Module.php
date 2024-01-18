@@ -58,6 +58,7 @@ class Module extends ET_Builder_Module
     public function get_fields()
     {
         $donationForms = $this->forms->getAll();
+
         $donationFormsKeys = array_map(
             'strval',
             array_keys($donationForms)
@@ -89,7 +90,8 @@ class Module extends ET_Builder_Module
                 'default' => 'on',
                 'show_if' => [
                     'id' => $donationFormsKeys,
-                ],
+                    'style' => 'onpage',
+                ]
             ],
             'goal' => [
                 'label' => esc_html__('Display Donation goal', 'give-divi'),
@@ -99,6 +101,16 @@ class Module extends ET_Builder_Module
                 'default' => 'on',
                 'show_if' => [
                     'id' => $donationFormsKeys,
+                    'style' => 'onpage',
+                ]
+            ],
+            'continue_button_title' => [
+                'label' => esc_html__('Button label', 'give-divi'),
+                'type' => 'text',
+                'option_category' => 'basic_option',
+                'default' =>  esc_html__('Donate', 'give-divi'),
+                'show_if_not' => [
+                    'style' => 'onpage',
                 ],
             ],
         ];
@@ -109,27 +121,39 @@ class Module extends ET_Builder_Module
      *
      * @since 1.0.0
      *
-     * @param null $content
+     * @param string|null $content
      * @param string $render_slug
      *
      * @param array $attrs
      *
      * @return string|void
      */
-    public function render($attrs, $content = null, $render_slug)
+    public function render($attrs, $content, $render_slug)
     {
         if ( ! isset($attrs['id']) || ! boolval($attrs['id'])) {
             return;
         }
 
-        $atts = [
-            'id' => $attrs['id'],
-            'display_style' => isset($attrs['style']) ? $attrs['style'] : 'onpage',
-            'show_title' => isset($attrs['title']) ? filter_var($attrs['title'], FILTER_VALIDATE_BOOLEAN) : true,
-            'show_goal' => isset($attrs['goal']) ? filter_var($attrs['goal'], FILTER_VALIDATE_BOOLEAN) : true,
-        ];
+        if (isset($attrs['style']) && $attrs['style'] === 'button') {
+            $attrs['style'] = 'newTab';
+        }
 
-        return give_form_shortcode($atts);
+        $style = $attrs['style'] ?? 'onpage';
+        $title = isset($attrs['title'])
+            ? filter_var($attrs['title'], FILTER_VALIDATE_BOOLEAN)
+            : true;
+        $goal = isset($attrs['goal'])
+            ? filter_var($attrs['goal'], FILTER_VALIDATE_BOOLEAN)
+            : true;
+        $buttonLabel = $attrs['continue_button_title'] ?? 'Donate';
+
+        return give_form_shortcode([
+            'id' => $attrs['id'],
+            'display_style' => $style,
+            'show_title' => $title,
+            'show_goal' => $goal,
+            'continue_button_title' => $buttonLabel,
+        ]);
     }
 
 }

@@ -2,6 +2,9 @@
 
 namespace GiveDivi\Divi\Routes;
 
+use Give\DonationForms\Actions\GenerateDonationFormPreviewRouteUrl;
+use Give\DonationForms\Actions\GenerateDonationFormViewRouteUrl;
+use Give\DonationForms\Models\DonationForm;
 use WP_REST_Request;
 use WP_REST_Response;
 
@@ -100,6 +103,7 @@ class RenderDonationForm extends Endpoint
             'display_style' => $request->get_param('style'),
             'show_title' => $request->get_param('title'),
             'show_goal' => $request->get_param('goal'),
+            'continue_button_title' => $request->get_param('continue_button_title'),
         ];
 
         $_SERVER['QUERY_STRING'] = [
@@ -108,6 +112,26 @@ class RenderDonationForm extends Endpoint
             'rest' => true,
             // used as a flag to determine if reveal iframe script should be loaded
         ];
+
+        $isV3Form = (bool)give()->form_meta->get_meta($request->get_param('id'), 'formBuilderSettings', true);
+
+        if ($isV3Form) {
+            if ($donationForm = DonationForm::find($attributes['id'])) {
+                $donationForm->settings->showHeading        = boolval($attributes['show_title']);
+                $donationForm->settings->enableDonationGoal = boolval($attributes['show_goal']);
+                $donationForm->save();
+            }
+
+            return new WP_REST_Response(
+                [
+                    'status' => true,
+                    'isV3Form' => true,
+                    'dataSrc' => (new GenerateDonationFormViewRouteUrl())($request->get_param('id')),
+                    'viewUrl' => (new GenerateDonationFormPreviewRouteUrl())($request->get_param('id')),
+                    'content' => give_form_shortcode($attributes),
+                ]
+            );
+        }
 
         return new WP_REST_Response(
             [

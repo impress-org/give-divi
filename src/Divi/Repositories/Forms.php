@@ -3,6 +3,7 @@
 namespace GiveDivi\Divi\Repositories;
 
 use Give_Forms_Query;
+use Give\Helpers\Form\Utils;
 
 /**
  * Class Forms
@@ -34,6 +35,26 @@ class Forms
         }
 
         return $forms;
+    }
+
+    /**
+     * @unreleased
+     *
+     * @param array $forms
+     *
+     * @return array
+     */
+    public function getV3Forms($forms)
+    {
+        $output = [];
+
+        foreach ($forms as $id) {
+            if (Utils::isV3Form($id)) {
+                $output[] = $id;
+            }
+        }
+
+        return $output;
     }
 
     /**
