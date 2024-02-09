@@ -49,7 +49,7 @@ class Forms
         $output = [];
 
         foreach ($forms as $id) {
-            if (Utils::isV3Form($id)) {
+            if (Utils::isV3Form((int)$id)) {
                 $output[] = $id;
             }
         }

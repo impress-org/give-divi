@@ -5,6 +5,7 @@ namespace GiveDivi\Divi\Routes;
 use Give\DonationForms\Actions\GenerateDonationFormPreviewRouteUrl;
 use Give\DonationForms\Actions\GenerateDonationFormViewRouteUrl;
 use Give\DonationForms\Models\DonationForm;
+use Give\Helpers\Form\Utils;
 use WP_REST_Request;
 use WP_REST_Response;
 
@@ -113,7 +114,7 @@ class RenderDonationForm extends Endpoint
             // used as a flag to determine if reveal iframe script should be loaded
         ];
 
-        $isV3Form = (bool)give()->form_meta->get_meta($request->get_param('id'), 'formBuilderSettings', true);
+        $isV3Form = Utils::isV3Form((int)$request->get_param('id'));
 
         if ($isV3Form) {
             if ($donationForm = DonationForm::find($attributes['id'])) {
