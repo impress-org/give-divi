@@ -1,6 +1,6 @@
 import React, {createRef} from 'react';
 /**
- * @unreleased
+ * @since 2.0.0
  */
 export default function Iframe({dataSrc}) {
     const iframe = createRef();

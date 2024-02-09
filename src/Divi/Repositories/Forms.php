@@ -38,7 +38,7 @@ class Forms
     }
 
     /**
-     * @unreleased
+     * @since 2.0.0
      *
      * @param array $forms
      *

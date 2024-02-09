@@ -2,11 +2,11 @@
 Contributors: givewp, dlocc, webdevmattcrom, jason_the_adams
 Donate link: https://givewp.com/
 Tags: givewp, donation, divi, divi modules, fundraising
-Requires at least: 4.9
-Tested up to: 5.9
-Requires PHP: 5.6
-Stable tag: 1.0.3
-Requires Give: 2.9.6
+Requires at least: 6.0
+Tested up to: 6.4
+Requires PHP: 7.2
+Stable tag: 2.0.0
+Requires Give: 3.0.0
 License: GPLv3
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
 
@@ -66,9 +66,9 @@ Otherwise, if your question is specific to this plugin we're happy to answer you
 
 **Minimum Requirements**
 
-* WordPress 5.0 or greater
-* PHP version 7.0 or greater
-* MySQL version 5.6 or greater
+* WordPress 6.0 or greater
+* PHP version 7.2 or greater
+* MySQL version 5.7 or greater
 
 **Automatic installation**
 
@@ -93,6 +93,9 @@ Automatic updates should work like a charm; as always though, ensure you back up
 3. All shortcodes render on the screen with a live preview for your editing purposes
 
 == Changelog ==
+
+### 2.0.0 February 12th, 2024 ###
+* New: Added compatibility with the GiveWP visual form builder
 
 ### 1.0.3 March 3rd, 2022 ###
 * Tweak: Correct spelling of "GiveWp" to "GiveWP" throughout the plugin.

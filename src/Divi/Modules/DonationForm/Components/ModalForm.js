@@ -3,7 +3,7 @@ import {createPortal} from 'react-dom';
 import Iframe from './Iframe'
 
 /**
- * @unreleased
+ * @since 2.0.0
  */
 export default class ModalForm extends React.Component {
     constructor(props) {
