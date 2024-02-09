@@ -3,9 +3,9 @@
  * Plugin Name: Give - Donation Modules for Divi
  * Plugin URI:  https://go.givewp.com/divi-addon
  * Description: Use GiveWP shortcodes as Divi modules
- * Version:     1.0.3
- * Requires at least: 4.9
- * Requires PHP: 5.6
+ * Version:     2.0.0
+ * Requires at least: 6.0
+ * Requires PHP: 7.2
  * Author:      GiveWP
  * Author URI:  https://givewp.com/
  * Text Domain: give-divi
@@ -22,8 +22,8 @@ defined( 'ABSPATH' ) or exit;
 define( 'GIVE_DIVI_ADDON_NAME', 'Give - Divi' );
 
 // Versions
-define( 'GIVE_DIVI_ADDON_VERSION', '1.0.3' );
-define( 'GIVE_DIVI_ADDON_MIN_GIVE_VERSION', '2.9.6' );
+define( 'GIVE_DIVI_ADDON_VERSION', '2.0.0' );
+define( 'GIVE_DIVI_ADDON_MIN_GIVE_VERSION', '3.0.0' );
 
 // Add-on paths
 define( 'GIVE_DIVI_ADDON_FILE', __FILE__ );
