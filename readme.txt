@@ -2,8 +2,8 @@
 Contributors: givewp, dlocc, webdevmattcrom, jason_the_adams
 Donate link: https://givewp.com/
 Tags: givewp, donation, divi, divi modules, fundraising
-Requires at least: 6.0
-Tested up to: 6.4
+Requires at least: 6.3
+Tested up to: 6.5
 Requires PHP: 7.2
 Stable tag: 2.0.0
 Requires Give: 3.0.0
@@ -94,7 +94,7 @@ Automatic updates should work like a charm; as always though, ensure you back up
 
 == Changelog ==
 
-### 2.0.0 February 12th, 2024 ###
+### 2.0.0 May 15th, 2024 ###
 * New: Added compatibility with the GiveWP visual form builder
 
 ### 1.0.3 March 3rd, 2022 ###

@@ -19,11 +19,16 @@
         "install-codestandards": [
             "Dealerdirect\\Composer\\Plugin\\Installers\\PHPCodeSniffer\\Plugin::run"
         ],
-        "test:unit": "phpunit"
+        "test": "./vendor/bin/phpunit --colors --stop-on-failure"
     },
     "autoload": {
         "psr-4": {
             "GiveDivi\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+          "GiveDivi\\Tests\\": "tests/"
         }
     },
     "config": {
