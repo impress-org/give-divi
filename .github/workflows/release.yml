@@ -10,6 +10,7 @@ jobs:
         with:
             wp_org_slug: give-donation-modules-for-divi
             zip_name: give-divi
+            text_domain: give-divi
         secrets:
             SVN_USERNAME: ${{ secrets.SVN_USERNAME }}
             SVN_PASSWORD: ${{ secrets.SVN_PASSWORD }}
