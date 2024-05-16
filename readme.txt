@@ -94,7 +94,7 @@ Automatic updates should work like a charm; as always though, ensure you back up
 
 == Changelog ==
 
-### 2.0.0 May 15th, 2024 ###
+### 2.0.0 May 16th, 2024 ###
 * New: Added compatibility with the GiveWP visual form builder
 
 ### 1.0.3 March 3rd, 2022 ###
