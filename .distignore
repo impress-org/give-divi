@@ -1,17 +1,39 @@
 /.git
 .gitignore
+.gitattributes
 
 /.idea
 /.github
 /.storybook
+/.phpstan
+/.wordpress-org
+
+/bin
+/tests
+/node_modules
+/assets/src
+/assets/dist/**/*.map
+/vendor/bin
+/vendor/composer/installers
+/vendor/**/*.phar
+
+.phpstorm.meta.php
+.travis.yml
+.editorconfig
+.babelrc
+
 
 /tests
 /node_modules
+/packages/form-builder/node_modules
+/assets/src
 /vendor/bin
 /vendor/composer/installers
 
+.travis.yml
 .editorconfig
 .babelrc
+.babelrc.json
 .jscrsrc
 .jshintrc
 .eslintignore
@@ -19,15 +41,21 @@
 .eslintrc.json
 .prettierrc.json
 .prettierignore
+.phpcs.xml
 .stylelintrc.json
 .huskyrc.json
 .lintstagedrc.json
 .distignore
 .stylelintignore
+jsconfig.json
+globals.d.ts
+tsconfig.json
+phpstan.neon
 
 sample-data/wordpress.sql
 sample-data/sample-data.numbers
 bower.json
+build.php
 composer.json
 composer.lock
 package.json
@@ -44,5 +72,14 @@ CODE_OF_CONDUCT.md
 contributing.md
 postcss.config.js
 webpack.config.js
+webpack.mix.js
+docker-compose.yml
+wp-textdomain.js
+.wp-env.json
+
+# GH Action files
+DOCKER_ENV
+docker_tag
+output.log
 docker-compose.yml
 wp-textdomain.js
