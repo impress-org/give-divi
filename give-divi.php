@@ -4,7 +4,7 @@
  * Plugin URI:  https://go.givewp.com/divi-addon
  * Description: Use GiveWP shortcodes as Divi modules
  * Version:     2.0.1
- * Requires at least: 6.3
+ * Requires at least: 6.5
  * Requires PHP: 7.2
  * Author:      GiveWP
  * Author URI:  https://givewp.com/
@@ -22,7 +22,7 @@ defined( 'ABSPATH' ) or exit;
 define( 'GIVE_DIVI_ADDON_NAME', 'Give - Divi' );
 
 // Versions
-define( 'GIVE_DIVI_ADDON_VERSION', '2.0.0' );
+define( 'GIVE_DIVI_ADDON_VERSION', '2.0.1' );
 define( 'GIVE_DIVI_ADDON_MIN_GIVE_VERSION', '3.0.0' );
 
 // Add-on paths
