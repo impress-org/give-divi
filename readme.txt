@@ -94,7 +94,7 @@ Automatic updates should work like a charm; as always though, ensure you back up
 
 == Changelog ==
 
-### 2.0.1 February 7th, 2025 ###
+### 2.0.1 February 11th, 2025 ###
 * Security: Removed bundled information disclosure (CVE-2025-22633)
 
 ### 2.0.0 May 16th, 2024 ###
